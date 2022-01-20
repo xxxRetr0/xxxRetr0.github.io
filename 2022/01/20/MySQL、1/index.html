@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        Ekko
+    </title>
+    <meta name="description" content= 嘿，我是刘训灼～这是我的子站，用于展示写的Hexo主题：Coder。欢迎访问！ >
+    <meta name="keywords" content= Blog,Hexo,Theme,刘训灼,LiuXunzhuo >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ekko" type="application/atom+xml">
+</head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            MySQL、1
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>这里是MySQL的安装与完全卸载！！这两个折磨了我好久啊啊啊啊，装完卸，卸完装一直重复<br>首先任意浏览器搜索mysql，如图<br><img src="https://i.bmp.ovh/imgs/2022/01/77ddce2dd30424e9.png"><br>选择download<br><img src="https://i.bmp.ovh/imgs/2022/01/edf9c37fc927d1fd.png"><br>下拉找到这个<br><img src="https://i.bmp.ovh/imgs/2022/01/5d17a17810006b33.png"><br><img src="https://i.bmp.ovh/imgs/2022/01/b0b7eef601457976.png"><br>这里出现两个下载渠道，其中①为压缩包，②为直接下载客户端（我试了老半天①终于成功之后发现②挺快的…）<br><img src="https://i.bmp.ovh/imgs/2022/01/a8497305921b2b4a.png"></p>
+<p>首先是①的安装方法</p>
+<p>1、选择下载后会在你选择的安装路径下出现这么一个压缩包<br><img src="https://i.bmp.ovh/imgs/2022/01/1149a79784347f35.png"></p>
+<p>2、解压到当前文件夹，打开后得到如下<br><img src="https://i.bmp.ovh/imgs/2022/01/ba1fe701aebe20f3.png"><br>其中data和my.ini是没有的，需要我们自己手动添加</p>
+<p>3、新建文本文档，直接改头换面，后缀也改掉，改成my.ini，这时候提示警告，我们不用搭理它，确定就可以了。接下来打开这个文本文档，将以下内容复制进去</p>
+<p>[mysqld]</p>
+<h1 id="设置3306端口"><a href="#设置3306端口" class="headerlink" title="设置3306端口"></a>设置3306端口</h1><p>port=3306</p>
+<h1 id="设置mysql的安装目录"><a href="#设置mysql的安装目录" class="headerlink" title="设置mysql的安装目录"></a>设置mysql的安装目录</h1><p>basedir=E:\MySQL\mysql-8.0.28-winx64</p>
+<h1 id="设置mysql数据库的数据的存放目录"><a href="#设置mysql数据库的数据的存放目录" class="headerlink" title="设置mysql数据库的数据的存放目录"></a>设置mysql数据库的数据的存放目录</h1><p>datadir=E:\MySQL\mysql-8.0.28-winx64\data</p>
+<h1 id="允许最大连接数"><a href="#允许最大连接数" class="headerlink" title="允许最大连接数"></a>允许最大连接数</h1><p>max_connections=200</p>
+<h1 id="允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统"><a href="#允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统" class="headerlink" title="允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统"></a>允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</h1><p>max_connect_errors=10</p>
+<h1 id="服务端使用的字符集默认为UTF8"><a href="#服务端使用的字符集默认为UTF8" class="headerlink" title="服务端使用的字符集默认为UTF8"></a>服务端使用的字符集默认为UTF8</h1><p>character-set-server=utf8</p>
+<h1 id="创建新表时将使用的默认存储引擎"><a href="#创建新表时将使用的默认存储引擎" class="headerlink" title="创建新表时将使用的默认存储引擎"></a>创建新表时将使用的默认存储引擎</h1><p>default-storage-engine=INNODB</p>
+<h1 id="默认使用“mysql-native-password”插件认证"><a href="#默认使用“mysql-native-password”插件认证" class="headerlink" title="默认使用“mysql_native_password”插件认证"></a>默认使用“mysql_native_password”插件认证</h1><p>default_authentication_plugin=mysql_native_password<br>[mysql]</p>
+<h1 id="设置mysql客户端默认字符集"><a href="#设置mysql客户端默认字符集" class="headerlink" title="设置mysql客户端默认字符集"></a>设置mysql客户端默认字符集</h1><p>default-character-set=utf8<br>[client]</p>
+<h1 id="设置mysql客户端连接服务端时默认使用的端口"><a href="#设置mysql客户端连接服务端时默认使用的端口" class="headerlink" title="设置mysql客户端连接服务端时默认使用的端口"></a>设置mysql客户端连接服务端时默认使用的端口</h1><p>port=3306<br>default-character-set=utf8</p>
+<p>其中一定要记得修改basedir、datadir的路径（看你自己安装在哪里啦），至此，my.ini部分完成</p>
+<p>4、设置环境变量<br>右击 此电脑–&gt;属性–&gt;高级系统设置–&gt;环境变量<br><img src="https://i.bmp.ovh/imgs/2022/01/9fcd6fe135ac5606.png"><br>这里一步一步来<br><img src="https://pic.imgdb.cn/item/61e8f4062ab3f51d911cb7d0.jpg"><br>确定后双击Path，新建这两个哈<br><img src="https://pic.imgdb.cn/item/61e8f4ac2ab3f51d911d566f.jpg"><br>每一步都一定一定记得点确定！！！！！（别问我为什么那么强调…）</p>
+<p>5、创建data文件夹（不要自己在刚刚那里创建哈，建了的删掉就可以，不然mysql的服务可能启动不了）<br>搜索cmd，打开面板，切记一定要用管理员身份打开，不然很多地方走不通<br><img src="https://i.bmp.ovh/imgs/2022/01/72a745e9cda96e53.png"><br>输入 mysqld –initialize-insecure 回车，等个两秒钟命令就执行完了，再打开文件夹就会出现data文件夹</p>
+<p>6、初始化语句<br>把 mysqld –defaults-file=E:\Mysql\mysql-8.0.28-winx64\my.ini –initialize –console 复制进去，回车<br>这里风平浪静，什么也没发生</p>
+<p>7、安装MySQL<br>把 mysqld install 复制进去，回车<br>会出现一行简短的 Service successfully installed 就成啦</p>
+<p>8、初始化MySQL<br>mysqld –initialize-insecure –user=mysql<br>显示 MySQL 服务正在启动…<br>        MySQL 服务已经启动成功.<br>右击 此电脑–&gt;属性，这样子点下去，下滑就可以找到MySQL的服务，这里默认自启动就好，不然每次打开很麻烦<br><img src="https://pic.imgdb.cn/item/61e8f8432ab3f51d9120e924.jpg"></p>
+<p>9、启动MySQL<br>mysqladmin -u root -p password 123456<br>这里的“123456”为密码，可以改为任意的你想要的密码，而用户名都是“root”，无法更改<br>回车后出现Enter password，咱不用鸟它，回车就好了</p>
+<p>10、登录，进入mysql界面<br>mysql -u root -p123456 回车即可登录，不过这时密码是可视化的，如果我们旁边有人咧？这样子👇<br><img src="https://pic.imgdb.cn/item/61e8fa8d2ab3f51d912367df.jpg"><br>这下就全是***啦。（噢对了u和root之间的空格是可以省略的~）</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
