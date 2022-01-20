@@ -34,11 +34,11 @@
         <hr>
     </div>
     <div class="post-content">
-        <p>这里是MySQL的安装与完全卸载！！这两个折磨了我好久啊啊啊啊，装完卸，卸完装一直重复<br>首先任意浏览器搜索mysql，如图<br><img src="https://i.bmp.ovh/imgs/2022/01/77ddce2dd30424e9.png"><br>选择download<br><img src="https://i.bmp.ovh/imgs/2022/01/edf9c37fc927d1fd.png"><br>下拉找到这个<br><img src="https://i.bmp.ovh/imgs/2022/01/5d17a17810006b33.png"><br><img src="https://i.bmp.ovh/imgs/2022/01/b0b7eef601457976.png"><br>这里出现两个下载渠道，其中①为压缩包，②为直接下载客户端（我试了老半天①终于成功之后发现②挺快的…）<br><img src="https://i.bmp.ovh/imgs/2022/01/a8497305921b2b4a.png"></p>
+        <p>这里是MySQL的安装！！<br>这个折磨了我好久啊啊啊啊，装完卸，卸完装一直重复<br>首先任意浏览器搜索mysql，如图<br><img src="https://i.bmp.ovh/imgs/2022/01/77ddce2dd30424e9.png"><br>选择download<br><img src="https://i.bmp.ovh/imgs/2022/01/edf9c37fc927d1fd.png"><br>下拉找到这个<br><img src="https://i.bmp.ovh/imgs/2022/01/5d17a17810006b33.png"><br><img src="https://i.bmp.ovh/imgs/2022/01/b0b7eef601457976.png"><br>这里出现两个下载渠道，其中①为压缩包，②为直接下载客户端（①和②的默认端口都是3306）<br><img src="https://i.bmp.ovh/imgs/2022/01/a8497305921b2b4a.png"></p>
 <p>首先是①的安装方法</p>
-<p>1、选择下载后会在你选择的安装路径下出现这么一个压缩包<br><img src="https://i.bmp.ovh/imgs/2022/01/1149a79784347f35.png"></p>
+<p>1、选择下载后会跳到这里，选下图这个就可以了<br><img src="https://pic.imgdb.cn/item/61e926152ab3f51d91559131.jpg"><br>然后会在你选择的安装路径下出现这么一个压缩包<br><img src="https://i.bmp.ovh/imgs/2022/01/1149a79784347f35.png"></p>
 <p>2、解压到当前文件夹，打开后得到如下<br><img src="https://i.bmp.ovh/imgs/2022/01/ba1fe701aebe20f3.png"><br>其中data和my.ini是没有的，需要我们自己手动添加</p>
-<p>3、新建文本文档，直接改头换面，后缀也改掉，改成my.ini，这时候提示警告，我们不用搭理它，确定就可以了。接下来打开这个文本文档，将以下内容复制进去</p>
+<p>3、新建文本文档，直接改头换面，后缀也改掉，改成my.ini，这时候提示警告，我们不用搭理它，确定就可以了。接下来打开这个文本文档，将以下内容复制进去（这里看着字体有点皮，不用管它，复制就对啦）</p>
 <p>[mysqld]</p>
 <h1 id="设置3306端口"><a href="#设置3306端口" class="headerlink" title="设置3306端口"></a>设置3306端口</h1><p>port=3306</p>
 <h1 id="设置mysql的安装目录"><a href="#设置mysql的安装目录" class="headerlink" title="设置mysql的安装目录"></a>设置mysql的安装目录</h1><p>basedir=E:\MySQL\mysql-8.0.28-winx64</p>
@@ -51,13 +51,14 @@
 <h1 id="设置mysql客户端默认字符集"><a href="#设置mysql客户端默认字符集" class="headerlink" title="设置mysql客户端默认字符集"></a>设置mysql客户端默认字符集</h1><p>default-character-set=utf8<br>[client]</p>
 <h1 id="设置mysql客户端连接服务端时默认使用的端口"><a href="#设置mysql客户端连接服务端时默认使用的端口" class="headerlink" title="设置mysql客户端连接服务端时默认使用的端口"></a>设置mysql客户端连接服务端时默认使用的端口</h1><p>port=3306<br>default-character-set=utf8</p>
 <p>其中一定要记得修改basedir、datadir的路径（看你自己安装在哪里啦），至此，my.ini部分完成</p>
-<p>4、设置环境变量<br>右击 此电脑–&gt;属性–&gt;高级系统设置–&gt;环境变量<br><img src="https://i.bmp.ovh/imgs/2022/01/9fcd6fe135ac5606.png"><br>这里一步一步来<br><img src="https://pic.imgdb.cn/item/61e8f4062ab3f51d911cb7d0.jpg"><br>确定后双击Path，新建这两个哈<br><img src="https://pic.imgdb.cn/item/61e8f4ac2ab3f51d911d566f.jpg"><br>每一步都一定一定记得点确定！！！！！（别问我为什么那么强调…）</p>
+<p>4、设置环境变量<br>右击 此电脑–&gt;属性–&gt;高级系统设置–&gt;环境变量<br><img src="https://i.bmp.ovh/imgs/2022/01/9fcd6fe135ac5606.png"><br>这里一步一步来<br><img src="https://pic.imgdb.cn/item/61e8f4062ab3f51d911cb7d0.jpg"><br>确定后双击Path，新建这两个哈<br><img src="https://pic.imgdb.cn/item/61e8f4ac2ab3f51d911d566f.jpg"><br>每一步都一定一定记得点确定！！！！！（别问我为什么那么强调…新建了N次都没点确定T T）</p>
 <p>5、创建data文件夹（不要自己在刚刚那里创建哈，建了的删掉就可以，不然mysql的服务可能启动不了）<br>搜索cmd，打开面板，切记一定要用管理员身份打开，不然很多地方走不通<br><img src="https://i.bmp.ovh/imgs/2022/01/72a745e9cda96e53.png"><br>输入 mysqld –initialize-insecure 回车，等个两秒钟命令就执行完了，再打开文件夹就会出现data文件夹</p>
 <p>6、初始化语句<br>把 mysqld –defaults-file=E:\Mysql\mysql-8.0.28-winx64\my.ini –initialize –console 复制进去，回车<br>这里风平浪静，什么也没发生</p>
 <p>7、安装MySQL<br>把 mysqld install 复制进去，回车<br>会出现一行简短的 Service successfully installed 就成啦</p>
 <p>8、初始化MySQL<br>mysqld –initialize-insecure –user=mysql<br>显示 MySQL 服务正在启动…<br>        MySQL 服务已经启动成功.<br>右击 此电脑–&gt;属性，这样子点下去，下滑就可以找到MySQL的服务，这里默认自启动就好，不然每次打开很麻烦<br><img src="https://pic.imgdb.cn/item/61e8f8432ab3f51d9120e924.jpg"></p>
-<p>9、启动MySQL<br>mysqladmin -u root -p password 123456<br>这里的“123456”为密码，可以改为任意的你想要的密码，而用户名都是“root”，无法更改<br>回车后出现Enter password，咱不用鸟它，回车就好了</p>
+<p>9、启动MySQL<br>mysqladmin -u root -p password 123456<br>这里的“123456”为密码，可以改为任意的你想要的密码，而用户名都是“root”，无法更改<br>回车后出现Enter password，咱不用鸟它，回车就好了(!!!只在前面的123456这里输密码，后面Enter password这里直接回车，不然会出问题!!!)</p>
 <p>10、登录，进入mysql界面<br>mysql -u root -p123456 回车即可登录，不过这时密码是可视化的，如果我们旁边有人咧？这样子👇<br><img src="https://pic.imgdb.cn/item/61e8fa8d2ab3f51d912367df.jpg"><br>这下就全是***啦。（噢对了u和root之间的空格是可以省略的~）</p>
+<p>而②的安装方法就是无脑下一步下一步下一步…该输入密码的地方输入密码然后接着下一步…下面是三个稍微看一下的地方<br><img src="https://pic.imgdb.cn/item/61e928922ab3f51d915844ff.jpg"><br><img src="https://pic.imgdb.cn/item/61e928d62ab3f51d91588dbd.jpg"><br><img src="https://pic.imgdb.cn/item/61e928fc2ab3f51d9158bed2.jpg"><br>安装完成后就可以直接从上面的9、开始啦</p>
 
     </div>
 
