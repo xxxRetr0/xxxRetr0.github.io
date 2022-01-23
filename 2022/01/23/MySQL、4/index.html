@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        Ekko
+    </title>
+    <meta name="description" content= 嘿，我是刘训灼～这是我的子站，用于展示写的Hexo主题：Coder。欢迎访问！ >
+    <meta name="keywords" content= Blog,Hexo,Theme,刘训灼,LiuXunzhuo >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ekko" type="application/atom+xml">
+</head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            MySQL、4
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>五、单行处理函数（一个输入对应一个输出）</p>
+<p>  1、常见单行处理函数：</p>
+<pre><code>lower 转换小写
+  如：mysql&gt; select lower(ename) as ename from emp;
+
+upper 转换大写
+  如：mysql&gt; select upper(ename) as ename from emp;
+
+substr 取子串，格式：substrate（被截取的字符串，起始下标，截取的长度）
+下标都是从1开始的
+  如：mysql&gt; select substr(ename, 1, 1) as ename from emp;
+
+length 取长度，格式：length(被取的字符串)
+  如：mysql&gt;  select length(ename) enamelength from emp; （空格表省略的 as ，为起别名）
+
+concat 字符串拼接，格式：concat（拼接字符串1，拼接字符串2）
+拼接后为12，中间无空格
+如mysql&gt;  select concat(empno,ename) from emp;
+
+trim 去空格，格式：trim（）
+其()内的所有空格都将去除
+如：mysql&gt; select * from emp where ename = &#39;  KING&#39;;
+       Empty set (0.00 sec)
+       mysql&gt; select * from emp where ename = trim(&#39;  KING&#39;);
+       +---------+---------+-------------+-------+-------------+---------+---------+----------+
+        | EMPNO | ENAME | JOB             | MGR  | HIREDATE   | SAL        | COMM | DEPTNO |
+       +---------+---------+--------------+------+--------------+---------+--------+----------+
+        |  7839     | KING     | PRESIDENT | NULL | 1981-11-17 | 5000.00 | NULL    |           10 |
+       +---------+---------+--------------+------+--------------+---------+--------+----------+
+       1 row in set (0.00 sec)
+
+round 四舍五入，格式：round（数字1，数字2）
+数字1为要四舍五入的数，数字2为小数点后保留几位数
+如：round（1234.56，1）结果为1234.6
+       round（1234.56，0）结果为1235
+       round（1234.56，-1）结果为1240
+
+rand（） 生成随机数，格式：rand（）
+随机生成0~1的数字
+如：随机生成0~100的整数
+       mysql&gt; select round(rand()*100,0) from emp;
+
+ifnull 转化null，格式：ifnull（A，B）
+其中A为参与的那一列数据，将null转化为B（有null参与的任何计算结果都为null，如1+null=null，与1+0=1不同）
+如：mysql&gt; select ename,(sal*12+comm) as yearsal from emp;
+       +--------+----------+
+       | ename  | yearsal  |
+       +--------+----------+
+       | SMITH  |     NULL |
+       | ALLEN  | 19500.00 |
+       | WARD   | 15500.00 |
+       | JONES  |     NULL |
+       | MARTIN | 16400.00 |
+       | BLAKE  |     NULL |
+       | CLARK  |     NULL |
+       | SCOTT  |     NULL |
+       | KING   |     NULL |
+       | TURNER | 18000.00 |
+       | ADAMS  |     NULL |
+       | JAMES  |     NULL |
+       | FORD   |     NULL |
+       | MILLER |     NULL |
+       +--------+----------+
+       14 rows in set (0.00 sec)
+
+       mysql&gt; select ename,(sal*12+ifnull(comm,0)) as yearsal from emp;
+       +--------+----------+
+       | ename  | yearsal  |
+       +--------+----------+
+       | SMITH  |  9600.00 |
+       | ALLEN  | 19500.00 |
+       | WARD   | 15500.00 |
+       | JONES  | 35700.00 |
+       | MARTIN | 16400.00 |
+       | BLAKE  | 34200.00 |
+       | CLARK  | 29400.00 |
+       | SCOTT  | 36000.00 |
+       | KING   | 60000.00 |
+       | TURNER | 18000.00 |
+       | ADAMS  | 13200.00 |
+       | JAMES  | 11400.00 |
+       | FORD   | 36000.00 |
+       | MILLER | 15600.00 |
+       +--------+----------+
+       14 rows in set (0.00 sec)
+
+case 如果，格式：case ... when ... then ... else end
+其中when ... then ... 的个数按需求给，不变的部分用else，类似于 C 的 if 语句
+如：mysql&gt; select ename,job,sal as oldsal,(case job when &#39;MANAGER&#39; then sal*1.1 when &#39;SALESMAN&#39; then sal*1.5 else sal end) as newsal from emp;
+       +--------+-----------+---------+---------+
+       | ename  | job       | oldsal  | newsal  |
+       +--------+-----------+---------+---------+
+       | SMITH  | CLERK     |  800.00 |  800.00 |
+       | ALLEN  | SALESMAN  | 1600.00 | 2400.00 |
+       | WARD   | SALESMAN  | 1250.00 | 1875.00 |
+       | JONES  | MANAGER   | 2975.00 | 3272.50 |
+       | MARTIN | SALESMAN  | 1250.00 | 1875.00 |
+       | BLAKE  | MANAGER   | 2850.00 | 3135.00 |
+       | CLARK  | MANAGER   | 2450.00 | 2695.00 |
+       | SCOTT  | ANALYST   | 3000.00 | 3000.00 |
+       | KING   | PRESIDENT | 5000.00 | 5000.00 |
+       | TURNER | SALESMAN  | 1500.00 | 2250.00 |
+       | ADAMS  | CLERK     | 1100.00 | 1100.00 |
+       | JAMES  | CLERK     |  950.00 |  950.00 |
+       | FORD   | ANALYST   | 3000.00 | 3000.00 |
+       | MILLER | CLERK     | 1300.00 | 1300.00 |
+       +--------+-----------+---------+---------+
+       14 rows in set (0.00 sec)
+</code></pre>
+<p>找出员工名字首字母为 A 的员工信息：<br>①：模糊查询<br>    mysql&gt; select ename from emp where ename like ‘A%’;<br>②：substr函数<br>    mysql&gt; select ename from emp where substr(ename,1,1) = ‘A’;</p>
+<p>将名字首字母改为大写（原本全为小写）<br>运用了函数的嵌套<br>①select upper(substr(name,1,1)) from t_student;  取学生名字首字母并改为大写<br>②select substr（name,2,length(name) - 1） from t_student;  取学生学生去掉首字母的名字保持不变<br>③select concat（upper(substr(name,1,1))，substr（name,2,length(name) - 1)）as result from t_student;拼接两部分并起名为result，的学生名字首字母大写后的结果</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
