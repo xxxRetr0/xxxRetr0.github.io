@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        Ekko
+    </title>
+    <meta name="description" content= 嘿，我是刘训灼～这是我的子站，用于展示写的Hexo主题：Coder。欢迎访问！ >
+    <meta name="keywords" content= Blog,Hexo,Theme,刘训灼,LiuXunzhuo >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ekko" type="application/atom+xml">
+</head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            MySQL、6
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>一、创建表</p>
+<p>1、建表语句的语法格式：<br>        create table 表名(字段名1 数据类型,字段名2 数据类型,字段名3 数据类型,….);<br>      表名一般以 t_ 或 tbl_ 开始</p>
+<p>2、MySQL中的数据类型</p>
+<pre><code>    int        整数型，最长11
+    bigint                    长整型
+    float        浮点型
+                            double                    双精度浮点型数据
+    char        定长字符串，最长255
+                                        若给定10个字符，而输入了4个字符，则显示即为4个字符加6个空格不管实际长度，分配固定的空间用于存储数据
+
+    varchar                    可变长字符串，最长255
+                                        若给定10个字符，而输入了4个字符，则显示即为4个字符，根据实际数据长度动态的分配存储空间
+                                        
+    date        短日期类型
+                            datetime                 长日期类型
+    blob        二进制大对象（存储图片、视频等流媒体信息） Binary Large OBject 
+    clob        字符大对象（存储较大文本，最多可以存储4G的字符串。） Character Large OBject（
+    ......
+</code></pre>
+<p>3、char 与 varchar<br>     char 速度快，但使用不当容易浪费空间，varchar 速度慢，但节省空间<br>     选择：给性别等固定长度的用 char，给姓名等不定长度的用 varchar</p>
+<p>4、删除表：①drop table 表名；//如果该表本就不存在，会报错<br>                   ②drop table if exists 表名；</p>
+<p>mysql&gt; create table t_student(no int,name varchar(32),gender char(1),age int(3),email varchar(255));<br><img src="https://i.bmp.ovh/imgs/2022/01/4e9fe6cf948bc372.png"></p>
+<p>二、插入数据 insert（DML）</p>
+<p>1、格式：<br>             insert into 表名（字段1，字段2，字段3…） values（值1，值2，值3…）；</p>
+<pre><code>  字段名和值的数量和数据类型要一一对应
+</code></pre>
+<p>mysql&gt; insert into t_student(no,name,gender,age,email) values(1,’zhangsan’,’m’,’20’,‘<a href="mailto:&#122;&#104;&#97;&#110;&#x67;&#x73;&#x61;&#x6e;&#64;&#x31;&#50;&#51;&#46;&#x63;&#x6f;&#109;">&#122;&#104;&#97;&#110;&#x67;&#x73;&#x61;&#x6e;&#64;&#x31;&#50;&#51;&#46;&#x63;&#x6f;&#109;</a>‘);<br>mysql&gt; insert into t_student(email,name,gender,age,no) values(‘<a href="mailto:&#108;&#x69;&#115;&#105;&#64;&#49;&#x32;&#51;&#x2e;&#x63;&#x6f;&#109;">&#108;&#x69;&#115;&#105;&#64;&#49;&#x32;&#51;&#x2e;&#x63;&#x6f;&#109;</a>‘,’lisi’,’f’,20,2);<br><img src="https://s3.bmp.ovh/imgs/2022/01/29fae80623f62d37.png"></p>
+<p>2、指定默认值（default）</p>
+<p>表中的 default 为默认值，可在创建表的时候给定默认值</p>
+<p>mysql&gt; create table t_student(no int,name varchar(32),gender char(1) default ‘m’,age int(3),email varchar(255));</p>
+<p>插入数据时：<br>            ①没给的数据会附上默认值<br>            ②表名后的字段可省略，此时后面的值个数必须写全，否则报错，输入的值必须和默认的字段一一对应</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/01/a1978d7da1cfe82d.png"></p>
+<p>3、格式化数字：format(数字,’格式’);</p>
+<p>mysql&gt; select ename,format(sal,’$999,999’) as sal from emp;</p>
+<p>4、转整型为日期型<br>    str_to_date(‘字符串日期’,’日期格式’)</p>
+<pre><code>mysql日期格式：%Y  年
+                           %m 月
+                           %d  日
+                           %h  时
+                           %i   分
+                           %s   秒
+</code></pre>
+<p>如：‘01-10-1990’用 str_to_date(‘01-10-1990’,’%d-%m-%Y’)<br>若我们输入的日期格式直接为 ‘%Y-%m-%d’ 这一类，则不用 str_to_date 函数</p>
+<p><img src="https://i.bmp.ovh/imgs/2022/01/2de311d83364b4c1.png"></p>
+<p>5、日期格式化<br>    data_format(日期类型数据,’日期格式’)</p>
+<pre><code>常用于查询日期时，设置日期的格式
+</code></pre>
+<p>mysql&gt; select id,name,date_format(birth,’%d/%m/%Y’) birth from t_user;<br><img src="https://i.bmp.ovh/imgs/2022/01/30cd358493e7f5e3.png"></p>
+<p>三、时间</p>
+<p>MySQL短日期默认格式：%Y-%m-%d</p>
+<p>MySQL长日期默认格式：%Y-%m-%d %:h%:i%:s</p>
+<p>now()：显示当前时间，数据类型为datetime</p>
+<p>新建个表 mysql&gt; create table t_user(id int,name varchar(32),birth date,create_time datetime);<br>mysql&gt; insert into t_user values(1,’zhangsan’,’1990-10-01’,’2022-1-29 22:40:30’);<br>mysql&gt; insert into t_user values(2,’lisi’,’1990-10-01’,now());</p>
+<p><img src="https://i.bmp.ovh/imgs/2022/01/7bb2b728ad56ffba.png"></p>
+<p>四、修改数据 update（DML）</p>
+<p>格式：<br>        update 表名 set 字段名1=值1,字段名2=值2,字段名3=值3… where 条件;</p>
+<pre><code>    注意：没有条件整张表数据全部更新。
+</code></pre>
+<p>mysql&gt; update t_user set name = ‘jack’,birth = ‘2000-2-2’ where id = 2;</p>
+<p><img src="https://i.bmp.ovh/imgs/2022/01/cafed881b078067e.png"></p>
+<p>五、删除数据 delete（DML）</p>
+<p>格式：<br>        delete from 表名 where 条件;</p>
+<pre><code>     注意：没有条件全部删除。
+</code></pre>
+<p>删除大表中的数据？<br>       truncate table 表名; // 表被截断，不可回滚。永久丢失。</p>
+<p>mysql&gt; delete from t_user where id = 2;//删除第二行👇①<br>mysql&gt; delete from t_user;//删除全表👇👇②</p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/01/b29628441cdd8e1a.png"></p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>

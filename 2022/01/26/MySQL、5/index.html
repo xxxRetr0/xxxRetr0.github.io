@@ -81,6 +81,16 @@
   ②mysql&gt; select e.ename,(select d.dname from dept d where e.deptno = d.deptno) dname from emp e;//👇👇👇③
 </code></pre>
 <p><img src="https://i.bmp.ovh/imgs/2022/01/8768d58636ecec60.png"></p>
+<p>十一、union 合并查询结果集</p>
+<p>1、格式：完整 select 语句① union 完整 select 语句②；</p>
+<p>如：查岗位为manager和salesman的员工<br>①mysql&gt; select ename,job from emp where job = ‘MANAGER’ or job = ‘SALESMAN’;<br>②mysql&gt; select ename,job from emp where job in(‘MANAGER’,’SALESMAN’);<br>③mysql&gt; select ename,job from emp where job = ‘MANAGER’ union select ename,job from emp where job = ‘SALESMAN’;</p>
+<p>2、其中①和②为之前的语句，③为 union 语句，看着好像有点麻烦、多此一举，但对于计算机是效率更高的，尤其是当表的内容多的时候</p>
+<p>若表a–&gt;10条数据，表b–&gt;10条数据，表c–&gt;10条数据<br>在不用 union 时，计算次数为 a 连接 b 连接 c –&gt;10<em>10</em>10=1000次<br>在用 union 语句时，计算次数为 a 连接 b，a 连接 c –&gt;10<em>10+10</em>10=200次</p>
+<p>3、注意<br>mysql&gt; select ename from emp where job = ‘MANAGER’ union select ename,job from emp where job = ‘SALESMAN’;//错误，两语句查询的列数要相同<br>mysql&gt; select ename,job from emp where job = ‘MANAGER’ union select ename,sal from emp where job = ‘SALESMAN’;//错误，两语句查询的列名要相同</p>
+<p>十二、limit</p>
+<p>1、作用：将查询结果的一部分拿出来，通常用在分页查询中</p>
+<p>2、格式：①limit x,y;// x 和 y 为数字，x 为起始下标，y 为查询长度，下标从0开始<br>                ②limit x;//取前x位</p>
+<p>3、limit (pageNo-1)*paguSize,pageSize</p>
 
     </div>
 
