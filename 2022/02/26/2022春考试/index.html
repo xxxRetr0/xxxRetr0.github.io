@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        Ekko
+    </title>
+    <meta name="description" content= 嘿，我是刘训灼～这是我的子站，用于展示写的Hexo主题：Coder。欢迎访问！ >
+    <meta name="keywords" content= Blog,Hexo,Theme,刘训灼,LiuXunzhuo >
+    
+<link rel="stylesheet" href="/libs/highlight/styles/monokai-sublime.css">
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Ekko" type="application/atom+xml">
+</head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/index.html"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            2022春考试
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
+        <p>今天是坐了一天呀，麻了都，怎么说呢，收获不少其实<br>一开始做的是crypto的RSA，这个在之前的练习题里面有做到一些<br>首先想到的是RSA-Tool 2<br><img src="https://s3.bmp.ovh/imgs/2022/02/da25cbb7281d5c04.png"><br>但是给的数据和之前做过的不大一样，没有给P、Q这些，于是上网搜看看已知其他量时的做法，在把那超长一串输进去N后开始解，然后等了非常非常久，在右下角的框里出现了一些数据（我傻傻的不会用），而且还没停，算不完…于是我这条路的思路先短在了这里<br>然后试看看这个👇👇👇<br><img src="https://s3.bmp.ovh/imgs/2022/02/92d63e7421ba0d2f.png"><br>但是在这里也没什么进展<br>于是开始翻翻之前做RSA时留的py脚本，里面基本上都是网上“借鉴”过来的，但是都和题目不符，在上网查询一波后也没找到个结果，于是想着能不能凭着里面程序的字面意思（自己还没学python），自己东拼西凑，凑一个能跑这题的脚本出来，但是莫得行呀，要么跑不动要么出一堆奇怪的东西<br><img src="https://s3.bmp.ovh/imgs/2022/02/6a8284143e677763.png"><br>然后就在网上再查看看，搜到了一些RSA题型的总结，没有直接和题目相同的题型，但看到一个类似的，需要的已知量居然比题目还少，于是试了试，拿到了一个flag，但上交后错了，然后就想看看能不能改改，结果越改越跑不动…最后居然找到一个能用的（离大谱），得到了正确的flag…<br><img src="https://s3.bmp.ovh/imgs/2022/02/e01abbd8a158b36e.png"><br>然后是crypto的另外两题，胡乱前进吧…试着解了一个flag，但是是错的</p>
+<p>后来是misc的签到题，这里的压缩包有个密码，试着把它扔进在里面<br><img src="https://s3.bmp.ovh/imgs/2022/02/8b4ac96321bf81fa.png"><br>但老是说文件损坏，后面那个1000层的也是一样（我还真手动解了几十层哈哈哈）<br><img src="https://s3.bmp.ovh/imgs/2022/02/cd359499b98f2ca6.png"><br>于是网上找啊找找啊找，找到一个在线的解密网址在线zip压缩包伪加密恢复工具 - 文档恢复专家 (wendanghuifu.com)，能解签到的那题，但青玉案那个解不了哇，然后得到了一个文本文档，里面的超级超级超级长，真的超级超级长，往下拉的时候看到了好多A和几个B，想着会不会是那个啥解密（就是也有很多AB，叫啥忘了哈哈），然后复制了一段过去解看看，然而解了个寂寞，看到开头有个/9j/，和其他内容都不一样，想着会不会是一种不了解的加密方式，上网搜发现是base64和图片之间的转换，于是搜了好多base64和图片之间的转换的在线网址，但是由于那串代码真的是太长太长太长了，真的太长的，复制进去半天才加载一部分出来，然后一转换，要么报错，要么网址卡死在那里，除了关掉啥都动不了，于是在上网搜看看，发现有个方法，在网址输入data:image/png;base64,(编码内容)<br><img src="https://s3.bmp.ovh/imgs/2022/02/12ebed12a5fae54e.png"><br>这才拿到flag（也加载了好一会）<br><img src="https://s3.bmp.ovh/imgs/2022/02/5721e1391e511dc3.jpg"><br>但是！过了一会我再去里面试看看，它居然也崩了…（真的好长啊啊啊）<br><img src="https://s3.bmp.ovh/imgs/2022/02/e958bd1cc7bdd115.png"><br>然后是web的第一题，在php方面的知识点确实太缺乏了，请教了好几次学长<br><img src="https://s3.bmp.ovh/imgs/2022/02/4fc9b6aa05b94343.png"><br><img src="https://s3.bmp.ovh/imgs/2022/02/b4456b56b9c37f32.png"><br><img src="https://s3.bmp.ovh/imgs/2022/02/f897cf1ff806c549.png"><br>在网上搜了了一些命令后才渐渐有了头绪，但最后还是卡在了第三张图这里，回去肯定会把好好学php，把这题整出来的<br>以上就是我的wp（第一次写wp，有点不知道该怎么写，感觉有点想唠嗑哈哈哈），今天的收获还是很多的，之前做题基本上都有原题的过程可以查到，但是一做学长学姐出的原创题发现差距实在太多了，收获主要是发现了自己的缺漏还有非常多，而不是今天解了几道题，总之呢，接下来会更加努力向前的！</p>
+
+    </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+    
+</div>
+    <div class="footer" id="footer">
+    <p><h4>Copyright © 2020 | Author: Your Name | Theme By <a class="theme-author" target="_blank" rel="noopener" href="https://github.com/Xunzhuo/hexo-theme-coder" style="font-size:14px; color: #969696">Coder</a></h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">Page Views: <span id="busuanzi_value_site_pv"></span></span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">Unique Visitors: <span id="busuanzi_value_site_uv"></span></span>
+    
+    <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+        <input type="checkbox" name="switch" id="update_style">
+        <span class="el-switch-style"></span>
+    </label>
+
+    <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+</p>
+</div>
+
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="NOsswOncKgc8HOxqo9oxIWlX-gzGzoHsz">
+<input type="hidden" id="valine_appKey" value="z1FihjWEbS8uIfUQdmCtK7zz">
+
+<script src="/libs/jquery.min.js"></script>
+
+
+<script src="/libs/highlight/highlight.pack.js"></script>
+
+<script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+
+<script src="/js/js.js"></script>
+
+<style type="text/css">
+.v * {
+color: #698fca;
+}
+.v .vlist .vcard .vhead .vsys {
+color: #3a3e4a;
+}
+.v .vlist .vcard .vh .vmeta .vat {
+color: #638fd5;
+}
+.v .vlist .vcard .vhead .vnick {
+color: #6ba1ff;
+}
+.v a {
+color: #8696b1;
+}
+.v .vlist .vcard .vhead .vnick:hover {
+color: #669bfc;
+}
+</style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+</body>
+</html>
