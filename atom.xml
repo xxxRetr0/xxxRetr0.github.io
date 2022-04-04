@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-17T08:26:08.690Z</updated>
+  <updated>2022-04-04T07:50:57.846Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP、1</title>
+    <link href="http://example.com/2022/04/03/PHP%E3%80%811/"/>
+    <id>http://example.com/2022/04/03/PHP%E3%80%811/</id>
+    <published>2022-04-03T07:01:49.000Z</published>
+    <updated>2022-04-04T07:50:57.846Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>HTML、1</title>
@@ -210,7 +231,7 @@
     <link href="http://example.com/2022/01/21/MySQL%E3%80%813/"/>
     <id>http://example.com/2022/01/21/MySQL%E3%80%813/</id>
     <published>2022-01-21T12:20:52.000Z</published>
-    <updated>2022-01-26T08:59:26.617Z</updated>
+    <updated>2022-02-02T13:45:00.860Z</updated>
     
     
       
@@ -400,27 +421,6 @@
     <id>http://example.com/2021/10/13/HackBar%E7%95%8C%E9%9D%A2/</id>
     <published>2021-10-13T08:52:08.000Z</published>
     <updated>2021-10-13T08:52:26.798Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>XXF与Referer伪造</title>
-    <link href="http://example.com/2021/10/10/XXF%E4%B8%8EReferer%E4%BC%AA%E9%80%A0/"/>
-    <id>http://example.com/2021/10/10/XXF%E4%B8%8EReferer%E4%BC%AA%E9%80%A0/</id>
-    <published>2021-10-10T02:43:20.000Z</published>
-    <updated>2021-10-10T03:10:09.030Z</updated>
     
     
       
