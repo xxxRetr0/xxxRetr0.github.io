@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>一些小ping | xxxRetr0</title><meta name="author" content="xxxRetr0"><meta name="copyright" content="xxxRetr0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OSI七层协议和TCP&#x2F;IP五层协议对应协议关系 1、基于OSI模型扫描优缺点    二层扫描    优：速度快，可靠        缺：不可路由    三层扫描    优：可路由，速度快        缺：相对于二层慢，易被边界防火墙过滤    四层扫描    优：可路由，可靠，不易被防火墙过滤，可发现所有端口被过滤的主机        缺：可能被基于状态过滤的防火墙过滤，全端口扫描速度慢 2、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些小ping">
+<meta property="og:url" content="http://example.com/2022/07/16/%E4%B8%80%E4%BA%9B%E5%B0%8Fping/index.html">
+<meta property="og:site_name" content="xxxRetr0">
+<meta property="og:description" content="OSI七层协议和TCP&#x2F;IP五层协议对应协议关系 1、基于OSI模型扫描优缺点    二层扫描    优：速度快，可靠        缺：不可路由    三层扫描    优：可路由，速度快        缺：相对于二层慢，易被边界防火墙过滤    四层扫描    优：可路由，可靠，不易被防火墙过滤，可发现所有端口被过滤的主机        缺：可能被基于状态过滤的防火墙过滤，全端口扫描速度慢 2、">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-07-16T10:03:17.000Z">
+<meta property="article:modified_time" content="2022-07-16T10:03:46.352Z">
+<meta property="article:author" content="xxxRetr0">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/07/16/%E4%B8%80%E4%BA%9B%E5%B0%8Fping/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '一些小ping',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-07-16 18:03:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xxxRetr0" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">xxxRetr0</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">一些小ping</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-07-16T10:03:17.000Z" title="Created 2022-07-16 18:03:17">2022-07-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-07-16T10:03:46.352Z" title="Updated 2022-07-16 18:03:46">2022-07-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="一些小ping"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>OSI七层协议和TCP/IP五层协议对应协议关系<br><img src="https://i.bmp.ovh/imgs/2022/07/16/39a277e8ce63aa5b.png"></p>
+<p>1、基于OSI模型扫描优缺点<br>    二层扫描    优：速度快，可靠<br>        缺：不可路由<br>    三层扫描    优：可路由，速度快<br>        缺：相对于二层慢，易被边界防火墙过滤<br>    四层扫描    优：可路由，可靠，不易被防火墙过滤，可发现所有端口被过滤的主机<br>        缺：可能被基于状态过滤的防火墙过滤，全端口扫描速度慢</p>
+<p>2、基于 ping 命令的探测<br>┌──(root㉿kali)-[~]<br>└─# ping lol.qq.com -c 1<br>PING lol.qq.com.sched.legopic2-dk.tdnsv6.com (121.32.249.136) 56(84) bytes of data.<br>64 bytes from 121.32.249.136 (121.32.249.136): icmp_seq=1 ttl=54 time=31.2 ms</p>
+<p>— lol.qq.com.sched.legopic2-dk.tdnsv6.com ping statistics —<br>1 packets transmitted, 1 received, 0% packet loss, time 0ms<br>rtt min/avg/max/mdev = 31.242/31.242/31.242/0.000 ms</p>
+<p>traceroute指令让你追踪网络数据包的路由途径，预设数据包大小是40Bytes，用户可另行设置。<br>具体参数格式：traceroute [-dFlnrvx][-f&lt;存活数值&gt;][-g&lt;网关&gt;…][-i&lt;网络界面&gt;][-m&lt;存活数值&gt;][-p&lt;通信端口&gt;][-s&lt;来源地址&gt;][-t&lt;服务类型&gt;][-w&lt;超时秒数&gt;][主机名称或IP地址][数据包大小]</p>
+<p>┌──(root㉿kali)-[~]<br>└─# traceroute lol.qq.com<br>traceroute to lol.qq.com (113.219.165.199), 30 hops max, 60 byte packets<br> 1  192.168.0.1 (192.168.0.1)  31.041 ms  32.326 ms  35.503 ms<br> 2  192.168.1.1 (192.168.1.1)  6.849 ms  7.655 ms  8.348 ms<br> 3  100.64.0.1 (100.64.0.1)  9.127 ms  10.102 ms  13.786 ms<br> 4  218.5.181.121 (218.5.181.121)  18.016 ms  15.841 ms *<br> 5  120.40.190.229 (120.40.190.229)  39.932 ms 120.40.190.237 (120.40.190.237)  35.139 ms 120.40.190.249 (120.40.190.249)  37.300 ms<br> 6  202.97.105.130 (202.97.105.130)  40.933 ms 202.97.18.134 (202.97.18.134)  36.858 ms 202.97.67.206 (202.97.67.206)  40.440 ms<br> 7  61.137.14.50 (61.137.14.50)  36.684 ms 61.137.5.86 (61.137.5.86)  42.346 ms 61.137.5.106 (61.137.5.106)  42.674 ms<br> 8  175.6.253.169 (175.6.253.169)  41.217 ms 175.6.253.185 (175.6.253.185)  45.049 ms 175.6.252.38 (175.6.252.38)  49.776 ms<br> 9  * * *<br>10  * * *<br>11  * * *<br>12  * * *<br>13  * * *<br>14  * * *<br>15  * * *<br>16  * * *<br>17  * * *<br>18  * * *<br>19  * * *<br>20  * * *<br>21  * * *<br>22  * * *<br>23  * * *<br>24  * * *<br>25  * * *<br>26  * * *<br>27  * * *<br>28  * * *<br>29  * * *<br>30  * * *</p>
+<pre><code>上方的 * * * 表示被防火墙过滤的 ICMP 返回信息
+每段返回值后面的三个时间代表默认的三个包返回时间，可通过 -q 改变包的数量，如：traceroute lol.qq.com -q 4 
+
+由 ping 命令延申出了其他命令，如 ARPING、FPING、HPING
+</code></pre>
+<p>3、ARPING<br>    ARP协议将局域网 IP 地址转为网卡的 MAC 地址（物理地址）<br>    可用于检查局域网中 IP 是否有冲突</p>
+<p>┌──(root㉿kali)-[~]<br>└─# arping 192.168.1.1 -c 1<br>ARPING 192.168.1.1<br>60 bytes from cc:08:fb:78:b3:35 (192.168.1.1): index=0 time=2.600 msec</p>
+<p>— 192.168.1.1 statistics —<br>1 packets transmitted, 1 packets received,   0% unanswered (0 extra)<br>rtt min/avg/max/std-dev = 2.600/2.600/2.600/0.000 ms</p>
+<p>ARPING批量检查脚本👇👇👇<br>#!/bin/bash<br>if [ “$#” -ne 1 ];then       #-ne 1 参数不等于为1<br>  echo “Usage - ./arping.sh [interface]”<br>  echo “Excample - ./arping.sh eth0”<br>  echo “Example will perform an ARP scan of the local subnet to which eth0 is assigned”<br>  exit<br>fi</p>
+<p>interface=$1             #输入的一个值，，赋值给interface变量<br>prefix=$(ifconfig $interface | grep “broadcast” | cut -d “ “ -f 10 | cut -d ‘.’ -f 1-3)                              #取IP地址的前缀，如：192.168.1<br>#echo “$prefix”<br>for addr in $(seq 98 110);do<br>    arping -c 1 $prefix.$addr -I $interface | grep “reply from” | cut -d” “ -f 4<br>done</p>
+<p>┌──(root㉿kali)-[~]<br>└─# chmod +x arping1.sh             #对 arping1.sh 提权</p>
+<p>┌──(root㉿kali)-[~]<br>└─# ./arping1.sh eth0        #对与IP地址相同开头的地址进行检测</p>
+<p>^C^Z        #退出当前操作（检测会从 .0 开始到 .255 ，真的好久，溜了溜了）</p>
+<p>4、Netdiscover</p>
+<p>选项说明<br>-i device        网络接口<br>-r range        扫描范围，例如192.168.0.0/24，仅支持/8, /16和/24<br>-l file        扫描范围列表文件，每行一个范围<br>-p        被动模式：不发生任何报文，仅嗅探<br>-m file        扫描已知Mac地址和主机名的列表文件<br>-F filter        自定义pcap filter表达式(默认“arp”)<br>-s time        每个ARP请求间的休眠时间(毫秒,默认1ms)<br>-c count        发送每个ARP请求的次数，用于丢失数据包的网络，默认1次<br>-n node        扫描最后的源IP，默认为67(x.x.x.67),允许范围为2-253<br>-d        忽略自动扫描和快速模式的主配置文件,扫描默认的范围和IP<br>-f        启用快速模式扫描,扫描每个网段的.1、.100 和 .254<br>-P        产生输出到文件或者其他解析程序，扫描完成后退出，例如：netdiscover -P -r 192.168.20.0/16 | grep 192.168.20.100<br>-L        与-P类似，但在主动扫描后继续捕获ARP包<br>-N        不打印表头，仅在-P 或者-L启用时有效</p>
+<p>主动模式<br>    主动探测发现网络内主机，但容易被发现<br>┌──(root㉿kali)-[~]<br>└─# netdiscover -i eth0 -r 192.168.1.0/24</p>
+<p>被动模式<br>    更加隐蔽，但速度较慢，网卡被设置为混杂模式来侦听网络内的 arp 数据包进行被动侦测（只有网络内设备发送的 arp 包才能被探测）<br>┌──(root㉿kali)-[~]<br>└─# netdiscover -p  </p>
+<p>5、hping3<br>    每次只扫描一个目标，也可进行 DOS 攻击的实验<br>对 <a target="_blank" rel="noopener" href="http://www.xuegod.cn/">http://www.xuegod.cn/</a> 进行压力测试<br> ┌──(root㉿kali)-[~]<br> └─#hping3 -c 1000 -d 120 -S -w 64 -p 80 –flood –rand-source xuegod.cn</p>
+<p>6、fping<br>    可理解为 ping 命令的加强版，进行网段的扫描<br>┌──(root㉿kali)-[~]<br>└─#fping -g 192.168.1.0/24 -c 1 &gt;fping.txt</p>
+<blockquote>
+<p>fping.txt 指将扫描结果重定向到 fping.txt 文件中，如果该网段输出结果很多，则文件中只会保留存活的主机信息</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">xxxRetr0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/07/16/%E4%B8%80%E4%BA%9B%E5%B0%8Fping/">http://example.com/2022/07/16/%E4%B8%80%E4%BA%9B%E5%B0%8Fping/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/07/16/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">信息收集</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">xxxRetr0</div><div class="author-info__description">yaHuuuuuu</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">37</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/16/%E4%B8%80%E4%BA%9B%E5%B0%8Fping/" title="一些小ping"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一些小ping"/></a><div class="content"><a class="title" href="/2022/07/16/%E4%B8%80%E4%BA%9B%E5%B0%8Fping/" title="一些小ping">一些小ping</a><time datetime="2022-07-16T10:03:17.000Z" title="Created 2022-07-16 18:03:17">2022-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/16/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" title="信息收集"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="信息收集"/></a><div class="content"><a class="title" href="/2022/07/16/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" title="信息收集">信息收集</a><time datetime="2022-07-16T07:08:25.000Z" title="Created 2022-07-16 15:08:25">2022-07-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/21/BUU-BuyFlag/" title="BUU-BuyFlag"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-BuyFlag"/></a><div class="content"><a class="title" href="/2022/05/21/BUU-BuyFlag/" title="BUU-BuyFlag">BUU-BuyFlag</a><time datetime="2022-05-21T12:20:14.000Z" title="Created 2022-05-21 20:20:14">2022-05-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/BUU-LoveSQL%E3%80%81Knife/" title="BUU-LoveSQL、Knife"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-LoveSQL、Knife"/></a><div class="content"><a class="title" href="/2022/04/24/BUU-LoveSQL%E3%80%81Knife/" title="BUU-LoveSQL、Knife">BUU-LoveSQL、Knife</a><time datetime="2022-04-24T09:36:16.000Z" title="Created 2022-04-24 17:36:16">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/19/BUU-PingPingPing/" title="BUU-PingPingPing"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-PingPingPing"/></a><div class="content"><a class="title" href="/2022/04/19/BUU-PingPingPing/" title="BUU-PingPingPing">BUU-PingPingPing</a><time datetime="2022-04-19T14:04:15.000Z" title="Created 2022-04-19 22:04:15">2022-04-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By xxxRetr0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
