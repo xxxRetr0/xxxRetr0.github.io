@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-16T10:03:46.352Z</updated>
+  <updated>2022-07-18T07:28:05.237Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>kali链接GitHub失败</title>
+    <link href="http://example.com/2022/07/18/kali%E9%93%BE%E6%8E%A5GitHub%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://example.com/2022/07/18/kali%E9%93%BE%E6%8E%A5GitHub%E5%A4%B1%E8%B4%A5/</id>
+    <published>2022-07-18T07:27:45.000Z</published>
+    <updated>2022-07-18T07:28:05.237Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>一些小ping</title>
@@ -400,27 +421,6 @@
     <id>http://example.com/2022/01/20/MySQL%E3%80%811/</id>
     <published>2022-01-20T04:52:03.000Z</published>
     <updated>2022-01-20T11:52:47.833Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>index</title>
-    <link href="http://example.com/2021/12/01/index/"/>
-    <id>http://example.com/2021/12/01/index/</id>
-    <published>2021-12-01T11:01:19.000Z</published>
-    <updated>2021-12-01T11:11:10.605Z</updated>
     
     
       
