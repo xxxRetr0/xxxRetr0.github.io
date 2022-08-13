@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-25T13:57:52.168Z</updated>
+  <updated>2022-08-13T08:48:26.193Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUU-FakeBook、EasyJava</title>
+    <link href="http://example.com/2022/08/13/BUU-FakeBook%E3%80%81EasyJava/"/>
+    <id>http://example.com/2022/08/13/BUU-FakeBook%E3%80%81EasyJava/</id>
+    <published>2022-08-13T08:48:01.000Z</published>
+    <updated>2022-08-13T08:48:26.193Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>BUU-Blacklist、Ez-bypass.md</title>
@@ -400,27 +421,6 @@
     <id>http://example.com/2022/01/23/%E4%BF%AE%E6%94%B9MySQL%E7%9A%84root%E5%AF%86%E7%A0%81/</id>
     <published>2022-01-23T07:07:45.000Z</published>
     <updated>2022-01-23T07:08:52.295Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL、3</title>
-    <link href="http://example.com/2022/01/21/MySQL%E3%80%813/"/>
-    <id>http://example.com/2022/01/21/MySQL%E3%80%813/</id>
-    <published>2022-01-21T12:20:52.000Z</published>
-    <updated>2022-02-02T13:45:00.860Z</updated>
     
     
       
