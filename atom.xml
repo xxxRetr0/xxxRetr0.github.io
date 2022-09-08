@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-08-13T08:48:26.193Z</updated>
+  <updated>2022-09-08T08:15:03.817Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUU-TheMysteryOfIp、禁止套娃</title>
+    <link href="http://example.com/2022/09/08/BUU-TheMysteryOfIp%E3%80%81%E7%A6%81%E6%AD%A2%E5%A5%97%E5%A8%83/"/>
+    <id>http://example.com/2022/09/08/BUU-TheMysteryOfIp%E3%80%81%E7%A6%81%E6%AD%A2%E5%A5%97%E5%A8%83/</id>
+    <published>2022-09-08T08:15:03.000Z</published>
+    <updated>2022-09-08T08:15:03.817Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>BUU-FakeBook、EasyJava</title>
@@ -400,27 +413,6 @@
     <id>http://example.com/2022/01/23/MySQL%E3%80%814/</id>
     <published>2022-01-23T08:56:10.000Z</published>
     <updated>2022-01-26T09:50:16.226Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>修改MySQL的root密码</title>
-    <link href="http://example.com/2022/01/23/%E4%BF%AE%E6%94%B9MySQL%E7%9A%84root%E5%AF%86%E7%A0%81/"/>
-    <id>http://example.com/2022/01/23/%E4%BF%AE%E6%94%B9MySQL%E7%9A%84root%E5%AF%86%E7%A0%81/</id>
-    <published>2022-01-23T07:07:45.000Z</published>
-    <updated>2022-01-23T07:08:52.295Z</updated>
     
     
       
