@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-09-08T08:20:38.292Z</updated>
+  <updated>2023-02-27T09:18:22.423Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cve-2018-12613-PhpMyadmin后台文件包含</title>
+    <link href="http://example.com/2023/02/27/cve-2018-12613-PhpMyadmin%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
+    <id>http://example.com/2023/02/27/cve-2018-12613-PhpMyadmin%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</id>
+    <published>2023-02-27T09:17:57.000Z</published>
+    <updated>2023-02-27T09:18:22.423Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>BUU-TheMysteryOfIp\禁止套娃</title>
@@ -400,27 +421,6 @@
     <id>http://example.com/2022/01/26/MySQL%E3%80%815/</id>
     <published>2022-01-26T09:51:03.000Z</published>
     <updated>2022-01-29T01:24:52.765Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MySQL、4</title>
-    <link href="http://example.com/2022/01/23/MySQL%E3%80%814/"/>
-    <id>http://example.com/2022/01/23/MySQL%E3%80%814/</id>
-    <published>2022-01-23T08:56:10.000Z</published>
-    <updated>2022-01-26T09:50:16.226Z</updated>
     
     
       
