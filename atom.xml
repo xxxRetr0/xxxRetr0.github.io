@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-01T12:18:16.862Z</updated>
+  <updated>2024-02-01T12:45:36.971Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/"/>
     <id>http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/</id>
     <published>2024-02-01T12:16:07.000Z</published>
-    <updated>2024-02-01T12:18:16.862Z</updated>
+    <updated>2024-02-01T12:45:36.971Z</updated>
     
     
       
@@ -34,6 +34,8 @@
     
     
     
+    
+    <category term="Pentest" scheme="http://example.com/tags/Pentest/"/>
     
   </entry>
   
