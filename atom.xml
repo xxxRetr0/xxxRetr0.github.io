@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-04-09T12:58:32.281Z</updated>
+  <updated>2024-02-01T12:18:16.862Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透:Lampiao</title>
+    <link href="http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/"/>
+    <id>http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/</id>
+    <published>2024-02-01T12:16:07.000Z</published>
+    <updated>2024-02-01T12:18:16.862Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>VulnHub-DarkHole-1</title>
@@ -400,27 +421,6 @@
     <id>http://example.com/2022/02/26/2022%E6%98%A5%E8%80%83%E8%AF%95/</id>
     <published>2022-02-26T11:55:01.000Z</published>
     <updated>2022-02-27T07:43:38.080Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>sqlilabs</title>
-    <link href="http://example.com/2022/02/23/sqlilabs/"/>
-    <id>http://example.com/2022/02/23/sqlilabs/</id>
-    <published>2022-02-23T12:15:02.000Z</published>
-    <updated>2022-02-23T12:29:47.129Z</updated>
     
     
       

