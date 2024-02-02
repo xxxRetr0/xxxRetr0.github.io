@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-01T12:45:36.971Z</updated>
+  <updated>2024-02-02T14:20:15.021Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透:Raven-2</title>
+    <link href="http://example.com/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/"/>
+    <id>http://example.com/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/</id>
+    <published>2024-02-02T14:19:46.000Z</published>
+    <updated>2024-02-02T14:20:15.021Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Pentest" scheme="http://example.com/tags/Pentest/"/>
+    
+  </entry>
   
   <entry>
     <title>渗透:Lampiao</title>
@@ -402,27 +425,6 @@
     <id>http://example.com/2022/03/12/BUU-%E9%9A%8F%E4%BE%BF%E6%B3%A8/</id>
     <published>2022-03-12T12:39:29.000Z</published>
     <updated>2022-03-12T13:23:20.482Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2022春考试</title>
-    <link href="http://example.com/2022/02/26/2022%E6%98%A5%E8%80%83%E8%AF%95/"/>
-    <id>http://example.com/2022/02/26/2022%E6%98%A5%E8%80%83%E8%AF%95/</id>
-    <published>2022-02-26T11:55:01.000Z</published>
-    <updated>2022-02-27T07:43:38.080Z</updated>
     
     
       
