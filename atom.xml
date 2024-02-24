@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-02-06T14:01:43.064Z</updated>
+  <updated>2024-02-24T03:00:25.772Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透-LordOfTheRoot-1</title>
+    <link href="http://example.com/2024/02/24/%E6%B8%97%E9%80%8F-LordOfTheRoot-1/"/>
+    <id>http://example.com/2024/02/24/%E6%B8%97%E9%80%8F-LordOfTheRoot-1/</id>
+    <published>2024-02-24T02:59:59.000Z</published>
+    <updated>2024-02-24T03:00:25.772Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Pentest" scheme="http://example.com/tags/Pentest/"/>
+    
+  </entry>
   
   <entry>
     <title>渗透-w1r3s-1</title>
@@ -404,27 +427,6 @@
     <id>http://example.com/2022/04/16/BUU-Exec-Secret-File/</id>
     <published>2022-04-16T14:22:20.000Z</published>
     <updated>2022-04-16T14:28:08.999Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PHP、1</title>
-    <link href="http://example.com/2022/04/03/PHP%E3%80%811/"/>
-    <id>http://example.com/2022/04/03/PHP%E3%80%811/</id>
-    <published>2022-04-03T07:01:49.000Z</published>
-    <updated>2022-04-04T07:50:57.846Z</updated>
     
     
       
